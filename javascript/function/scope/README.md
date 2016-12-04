@@ -57,7 +57,7 @@ function memberFunc () {
 
 ### 基本形型の仮引数
 
-基本形のグローバル変数がローカル変数に影響を与えることはありません。
+基本型のローカル変数がグローバル変数に影響を与えることはありません。
 
 ```
 
@@ -77,17 +77,37 @@ console.log(n); // 200
 
 ### 参照型の仮引数
 
-
+参照型は値そのものでなく値を格納したメモリ上の位置を格納しているだけです。参照型の値を受け渡しすることを参照渡しといい、渡される値は位置の情報のみです。参照型のローカル変数を操作すると、グローバル変数は操作された状態と等しくなります。
 
 ```
-var members = ['zoro','sanzi','nami'];
-function addMenber (members) {
+var members = ['zoro','sanzi','nami']; // 1
+function addMenber (members) { // 2
   members.push('momo');
   return members;
 }
-console.log(addMember(member));
-console.log(member);
+console.log(addMember(member)); // ['zoro','sanzi','nami','momo']
+console.log(member); // ['zoro','sanzi','nami','momo']
+
+// 1と2は別物だが、同じところを見ている
+
 ```
+
+
+
+
+
+##  ブロックスコープとlet命令
+
+let命令で変数を宣言すると、`({ })`のブロックスコープの範囲でのみ変数が有効になります。
+
+```
+if(true) {
+  let n = 10;
+}
+console.log(n); // error
+```
+
+
 
 
 

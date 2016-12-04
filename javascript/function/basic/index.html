@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+
+<body>
+  <script>
+    function calcQuad(x, y, u) {
+      return x * y + u;
+    }
+    console.log(calcQuad(10, 10, 'cm'));
+
+
+    var calcQuad2 = Function('x,y,u', 'return x * y + u;');
+    console.log(calcQuad2(10, 20, 'cm'));
+
+
+    var calcQuad3 = function (x, y, u) {
+      return x * y + u;
+    }
+    console.log(calcQuad3(20, 20, 'cm'));
+
+
+    let calcQuad4 = (x, y, u) => {
+      return x * y + u;
+    }
+    console.log(calcQuad4(30, 20, 'cm'));
+
+
+    let calcQuad5 = (x, y, u) => x * y + u;
+    console.log(calcQuad5(100, 20, 'cm'));
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Untitled Document</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+</head>
+
+<body>
+  <script>
+    (function(n) {
+      var i = n;
+      console.log('i:' + i);
+    })(100);
+
+    console.log('i:' + i);
+  </script>
+  <script>
+    var scope = 'global';
+
+    function yourScope() {
+      var scope  = 'local';
+
+      var nami = function() {
+        return scope;
+      }
+      console.log(nami()); // local
+
+      var zoro = new Function('return scope;');
+      console.log(zoro()); // global
+    }
+    yourScope();
+  </script>
+</body>
+
+</html>

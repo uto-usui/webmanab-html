@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Untitled Document</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+</head>
+
+<body>
+<script>
+var member = function(a) {
+  console.log(a);
+}
+member('nami');
+member();
+member('zoro','nami');
+</script>
+
+<script>
+var memberOnly = function(a) {
+  if(arguments.length !== 1) {
+    console.log('over:' arguments.length - 1);
+  } else {
+    console.log(a);
+  }
+}
+memberOnly('zoro','nami','sanzi');
+</script>
+</body>
+
+</html>

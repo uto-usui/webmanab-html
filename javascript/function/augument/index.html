@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Untitled Document</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+</head>
+
+<body>
+<script>
+var member = function(a) {
+  console.log(a);
+}
+member('nami');
+member();
+member('zoro','nami');
+</script>
+
+<script>
+var memberOnly = function(a) {
+  if(arguments.length !== 1) {
+    console.log('over:' arguments.length - 1);
+  } else {
+    console.log(a);
+  }
+}
+memberOnly('zoro','nami','sanzi');
+</script>
+<script>
+var checkArguments = function(m) {
+  if(arguments.length !== 1) {
+    throw new Error('引数の数が違います -- ' + arguments.length);
+  }
+}
+
+try {
+  checkArguments('nami', 'zoro');
+} catch(e) {
+  console.log(e.message);
+}
+</script>
+<script>
+var square = function(x,y) {
+  if(x === undefined) {
+    x = 100;
+  }
+  if(y === undefined) {
+    y = 100;
+  }
+  return x * y;
+}
+console.log(square(300));
+</script>
+<script>
+var sum = function () {
+  var result = 0;
+
+  for( var i = 0, len = arguments.length; i < len; i++) {
+    var n = arguments[i];
+    result += n;
+  }
+  return result;
+}
+console.log(sum(1,2,3,4,5,6,7,8,9,10));
+</script>
+</body>
+
+</html>

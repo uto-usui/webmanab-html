@@ -2,6 +2,11 @@
 
 Sassを使ったCSS記述の効率化や圧縮、JavaScriptファイルのES6での記述と圧縮、ブラウザでのリアルタイムプレビュー等をタスクランナーgulp.js(ガルプ)を使って実現します。
 
+gulpをインストールした際にすぐ使いたいタスクとテンプレートファイルをgithubに公開しました。拙いβ版ですが自由に使ってもらえるといいかなと思います。
+
+* [template_1.0.0 / github](https://github.com/uto-usui/template_1.0.0)
+
+
 
 ## gulpはデザイナーにも必要なタスクランナーに
 
@@ -91,7 +96,7 @@ sudo gem install -n /usr/local/bin compass
 
 gulpにはnode.jsが必須なので、インストールします。node.jsをインストールすると、npmコマンドが使えるようになります。
 
-* [http://nodejs.org/](node.js バージョン6.9.2 (2016/12/10))
+* [node.js バージョン6.9.2 (2016/12/10)](http://nodejs.org/)
 
 以下のコードでバージョンが表示されたらインストールは完了です。
 
@@ -113,7 +118,7 @@ gulpのインストールに必要な関連ファイルをディレクトリに�
 * config.rb
 * gulpfile.babel.js
 * package.json
-* [https://github.com/uto-usui/template_1.0.0](△ここから上記ファイルを参照します)
+* [△ここから上記ファイルを参照します](https://github.com/uto-usui/template_1.0.0)
 
 
 ### gulpをグローバルにインストール
@@ -147,7 +152,7 @@ sudo npm install
 
 ## gulpの実行
 
-* [https://github.com/uto-usui/template_1.0.0](タスク実行用のファイル)
+* [タスク実行用のファイル](https://github.com/uto-usui/template_1.0.0)
 
 `gulp`とコマンド入力すると、`default`として登録されているタスクが実行されます。
 

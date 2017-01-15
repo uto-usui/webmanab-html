@@ -8,6 +8,33 @@
 
 <body>
 <script>
+// 再帰関数
+var factorial = function (n) {
+  if(n != 0) {
+    return n * factorial(n - 1);
+  } else {
+    return 1;
+  }
+};
+console.log(factorial(4));
+</script>
+
+<script>
+//高階関数
+let getArray = function (data, func) {
+  for (var key in data) {
+    func(data[key], key);
+  }
+}
+
+let result = 0;
+let sumArray = function (value, key) {
+  result += value;
+}
+
+let myArray = [1,100,-50,10];
+getArray(myArray, sumArray);
+console.log(result);
 
 </script>
 </body>

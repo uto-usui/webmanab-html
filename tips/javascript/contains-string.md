@@ -16,6 +16,7 @@
 `match()`で文字列が含まれれば配列、文字列が含まれなければnullが返ることを利用します。
 
 ```
+
 var text = 'this is text'
 if ( text.match(/text/)) {
   console.log('match!!');
@@ -31,6 +32,7 @@ if ( text.match(/text/)) {
 
 
 ```
+
 var text = 'this is text'
 if ( text.indexOf(/text/) != -1) {
   console.log('match!!');

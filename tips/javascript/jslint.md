@@ -46,31 +46,49 @@ gulpfile.jsには以下のように記述します。
 
 ```
 
-var eslint = require('gulp-eslint'); // eslint
+var plumber = require('gulp-plumber');
+var notify = require('gulp-notify');
+var babel = require('gulp-babel');
+var rename = require('gulp-rename');
+
+var eslint = require('gulp-eslint');
 
 gulp.task('js', function(){
-    gulp.src(scriptPath)
-        .pipe(plumber({
-            errorHandler: notify.onError('Error: <%= error.message %>')
-        }))
-        .pipe(eslint({useEslintrc: true}))
-        .pipe(eslint.format())
-        .pipe(eslint.failAfterError())
-        .pipe(gulp.dest(distPath + '/'));
+  gulp.src(scriptPath)
+    .pipe(plumber({
+      errorHandler: notify.onError('Error: <%= error.message %>')
+    }))
+    .pipe(eslint({useEslintrc: true}))
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError())
+    .pipe(babel())
+    .pipe(rename(function (path) {
+       var cutLength = path.basename.length - 6;
+       path.basename = path.basename.slice(0, cutLength);
+    }))
+    .pipe(gulp.dest(jsPath + '/babel/'));
 });
 
 ```
 
-最低限の記述になっていますが、エラーを出力するのに「gulp-notify」、スクリプトを常に実行するために「gulp-plumber」も使用しています。`gulp js`とターミナルでコマンドを入力するとタスクが実行されます。
+エラーを出力するのに「gulp-notify」、スクリプトを常に実行するために「gulp-plumber」、babelを実行するのに「gulp-babel」、コンパイル後にファイル名を変更するのに「gulp-rename」を使用しています。`gulp js`とターミナルでコマンドを入力するとタスクが実行され、コンパイルされます。
+
+
+* [gulp-eslint](https://www.npmjs.com/package/gulp-eslint)
+* [babel-eslint](https://github.com/babel/babel-eslint)
+* [gulp-plumber](https://www.npmjs.com/package/gulp-plumber)
+* [gulp-notify](https://www.npmjs.com/package/gulp-notify)
+* [gulp-babel](https://www.npmjs.com/package/gulp-babel)
+* [gulp-rename](https://www.npmjs.com/package/gulp-rename)
 
 
 
 
 ### 設定ファイル.eslintrcをつくる
 
-ESLintの設定ファイル「.eslintrc」を作成しプロジェクトルートに設置します。ここに記述されたJSONの内容で、環境やルールの追加・変更などができるようになります。
+ESLintの特徴はチェックする内容を柔軟にカスタマイズできることですが、その設定ファイル「.eslintrc」を作成しプロジェクトルートに設置します。ここに記述されたJSONの内容で、環境やルールの追加・変更などができるようになります。
 
-具体的なルールや項目についてはここに解説されています。
+具体的なルールや項目についてはここに詳細に解説されています。
 
 * <a href="http://eslint.org/docs/rules/" target="_blank">List of available rules - ESLint</a>
 
@@ -131,13 +149,14 @@ ESLintの設定ファイル「.eslintrc」を作成しプロジェクトルー�
 
 とすることで、ESLintのオススメの設定を呼び出しています。設定内容は <a href="http://eslint.org/docs/rules/" target="_blank">List of available rules - ESLint</a>に記載されているチェックがついた項目になっています。ESLintは初期状態だと何もチェックしないので、ひとまずこれで最低限のルールをチェックできるようになります。これ基準にルールをカスタマイズしていきます。
 
+* [推奨設定の日本語訳](https://gist.github.com/mysticatea/df40f5e3cdbf0e9ae618)
 
 
 ```
 "parser": "babel-eslint",
 ```
 
-「babel-eslint」をparserに指定しています。
+「babel-eslint」をparserに指定しています。これでbabelでコンパイルすることを前提にスクリプトを記述できます。
 
 ```
 
@@ -150,7 +169,9 @@ ESLintの設定ファイル「.eslintrc」を作成しプロジェクトルー�
 
 ```
 
-`env`に記述している内容は、環境設定のようなものです。上記ではES6の記法でjQueryを使用するような環境を想定しています。
+`env`に記述している内容は、環境設定のようなものです。上記ではES6の記法でjQueryを使用するような環境を想定しています。ESLintは様々な環境下での使用に対応していて、特定の環境下やライブラリが読み込まれていることが前提でチェックを行うように指定しておきます。
+
+* [Configuring ESLint - ESLint - Pluggable JavaScript linter](http://eslint.org/docs/user-guide/configuring#specifying-environments)
 
 
 `rules`にルールを渡します。今回記述した内容だけになりますが、解説しておきます。

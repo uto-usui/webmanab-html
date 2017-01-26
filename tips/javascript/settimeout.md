@@ -1,7 +1,7 @@
 # 数秒後に処理を実行するsetTimeout()とJQueryのqueue()の扱い方 -『javascript』
 
 
-アニメーションなど何かの処理を遅らせて実行したいときや、前後関係をもたせたいときにJavaScriptの'setTimeout()'で実装する場合とJQueryの'delay()'と'queue()'で実装するときのtipsです。
+アニメーションなど何かの処理を遅らせて実行したいときや、前後関係をもたせたいときにJavaScriptの`setTimeout()`で実装する場合とJQueryの`delay()`と`queue()`で実装するときのtipsです。
 
 
 
@@ -47,7 +47,7 @@ setTimeout(function(){
 ```
 
 $('.js-late’).delay(1000).queue(function(){
-     $(this).addClass('active').text('One second later');
+    $(this).addClass('active').text('One second later');
 });
 
 ```

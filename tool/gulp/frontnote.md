@@ -1,4 +1,4 @@
-# 今日から始めたい。スタイルガイドジェネレーター「FrontNote」のgulpでの書き方使い方 - 『front-end』
+# フロントエンドを効率化。テンプレートエンジンEJSでgulpを使って監視下のファイルにグローバルのオブジェクトをJSON形式で渡す方法 - 『EJS』
 
 Node.js製の**スタイルガイドジェネレータ「FrontNote」**のガイドです。FrontNoteの特徴としてはスタイル全体の概要の記述、カラーパレットの作成、スタイルに任意のラベル付与などがあり、すごくここが有能で嬉しいポイントです。後はマテリアルデザインなところが個人的にテンションが上がりました○
 
@@ -24,7 +24,7 @@ gulp用のFrontnoteのプラグインをインストールします。
 * [StyleGuide Generator for Gulp](https://www.npmjs.com/package/gulp-frontnote)
 
 
-#### インストール
+#### terminal
 
 ```
 npm install frontnote --save-dev
@@ -32,7 +32,7 @@ npm install frontnote --save-dev
 
 ### gulpfile.jsへタスクを記述する
 
-gulpfile.jsに記述していきます。いくつかオプションがありますが、出力したファイルを置くディレクトリと、スタイル全体の概要を記述するマークダウンファイルのディレクトリをオプションに渡しておきます。
+gulpfile.jsに記述していきます。いくつかオプションがありますが、`out`に出力したファイルを置くディレクトリと、`overview`にスタイル全体の概要を記述するマークダウンファイルのディレクトリと、`css`にコンパイルされた後のファイルの場所を、それぞれオプションに渡しておきます。
 
 任意のディレクトリのSCSSファイルのスタイルガイドを生成するタスクを記述します。
 
@@ -48,6 +48,7 @@ gulp.task('note', function() {
    .pipe(frontNote({
       out: srcPath + './src',
       overview: srcPath + '/frontnote.md',
+      css:  './main.css'
    }));
 });
 
@@ -83,8 +84,8 @@ gulp.task('note', function() {
 
 ### 通常の記述
 
-```
-
+<pre>
+<code class="sass">
 /*
 #styleguide
 見出しのスタイル＊ タイトルをここに書く。
@@ -94,13 +95,14 @@ gulp.task('note', function() {
 @非推奨
 
 ```
-<h1 class="h1">title01</h1>
-<h2 class="h2">title02</h2>
-<h3 class="h3">title03</h3>
+&lt;h1 class="h1"&gt;title01&lt;/h1&gt;
+&lt;h2 class="h2"&gt;title02&lt;/h2&gt;
+&lt;h3 class="h3"&gt;title03&lt;/h3&gt;
 ```
 */
+</code>
+</pre>
 
-```
 
 
 
@@ -109,8 +111,8 @@ gulp.task('note', function() {
 
 注釈としてのラベルをつけることができます。古い情報や重要項目、策定中とかパッと見でわかりやすくできるので必要なところには使っておくと便利です。
 
-```
-
+<pre>
+<code class="sass">
 /*
 #styleguide
 古い見出し
@@ -123,17 +125,17 @@ gulp.task('note', function() {
 ```
 <h1 class="h1-old">title01</h1>
 ```
-
-```
-
+*/
+</code>
+</pre>
 
 
 ### カラーパレット
 
 カラーコードとその色味がわかる、カラーパレットを出力することができます。
 
-```
-
+<pre>
+<code class="sass">
 /*
 #colors
 
@@ -141,8 +143,8 @@ gulp.task('note', function() {
 @secondary #aa55cc
 @primary-text #cccccc
 */
-
-```
+</code>
+</pre>
 
 
 
@@ -174,7 +176,10 @@ FrontNoteを使うことによって、コメントをSCSS各ファイルに分�
 gulp.task('sass', () => {
   gulp.src(srcPath.sassPath + '/**/*.scss')
     .pipe(plumber({ errorHandler: notify.onError('<%= error.message %>') }))
-    .pipe(frontnote({ out: srcPath.cssPath }))
+    .pipe(frontnote({
+      out: srcPath.cssPath,
+      css:  './main.css'
+    }))
     .pipe(sass({
       config_file: 'config.rb',
       sass: srcPath.sassPath,

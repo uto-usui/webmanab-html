@@ -1,6 +1,6 @@
 # かわいく、かっこよく。素敵なアニメーションを実装するためのライブラリのまとめ -『animation』
 
-単純なアニメーションならCSSの`@keyframes`で実装できますが、複雑なアニメーションやサクッといいものを描くときにはアニメーションライブラリを使うと、くわしい知識や経験がなくても簡単に実装できます。また、アニメーションを実装する際の勉強や研究にもなるので、目を通しておきたいライブラリをまとめます。
+単純なアニメーションならCSSの`@keyframes`や`transition`で実装できますが、複雑なアニメーションやサクッといいものを描くときにはアニメーションライブラリを使うと、くわしい知識や経験がなくても簡単に実装できたり、複雑なアニメーションを構築することができます。また、アニメーションを実装する際の勉強や研究にもなるので、目を通しておきたいライブラリをまとめます。
 
 
 
@@ -15,7 +15,9 @@
 
 ### Tuesday
 
-0.3秒くらいの短時間で終了するように作られた要素の表示／非表示に使える、シンプルなCSSアニメーションライブラリ。用意された`class`を付与するだけで簡単にアニメーションが実装できます。
+<img src="https://webmanab-html.com/wp-content/uploads/2017/01/tuesday.png" alt="tuesday">
+
+0.3秒くらいの短時間で終了するように作られた要素の表示／非表示に使える、シンプルなCSSアニメーションライブラリ。用意された`class`を付与するだけで簡単にアニメーションが実装できます。ソースはLessで記述されています。
 
 * [Tuesday](http://shakrmedia.github.io/tuesday/)
 * [Tuesday github](https://github.com/ShakrMedia/tuesday)
@@ -24,12 +26,12 @@
 <div class="animated tdDropInLeft">animate_</div>
 ```
 
-ソースはLessで記述されています。
-
 
 
 
 ### csshake
+
+<img src="https://webmanab-html.com/wp-content/uploads/2017/01/csshake.png" alt="csshake">
 
 ガクガクブルブル震わせるCSSライブラリ。派手楽しいですが、とてもおしゃれ。用意されている`class`を付与します。SCSSで記述されていて、カスタマイズ用の`mixin`が用意されています。
 
@@ -47,6 +49,8 @@
 
 
 ### animate.css
+
+<img src="https://webmanab-html.com/wp-content/uploads/2017/01/animate-css.png" alt="animate-css">
 
 `class`属性を付与して様々なアニメーションを実装します。とても有名で人気のあるCSSアニメーションライブラリ。
 
@@ -66,6 +70,8 @@ SCSSでMixinが用意されている「animate.scss」もあります。実務�
 
 ### animatable
 
+<img src="https://webmanab-html.com/wp-content/uploads/2017/01/animatable.png" alt="animatable">
+
 CSSのプロパティ別にアニメーションを実装した例のまとめ。オブジェクトをクリックするとプロパティを変化させている値の幅を見ることができます。
 
 * [animatable](http://leaverou.github.io/animatable/)
@@ -74,6 +80,8 @@ CSSのプロパティ別にアニメーションを実装した例のまとめ�
 
 
 ### motion UI
+
+<img src="https://webmanab-html.com/wp-content/uploads/2017/01/zurb-playground-motion.png" alt="zurb-playground-motion">
 
 豊富なアニメーションがSassで用意されています。Mixinでいろいろな拡張ができるようになっていて、もともと用意されているアニメーションをミックスしたり、アニメーションに順序を与えることが簡単にできます。JavaScriptで制御することができるようになっています。ドキュメントはちょっと難しめ。
 
@@ -84,6 +92,8 @@ CSSのプロパティ別にアニメーションを実装した例のまとめ�
 
 
 ### Magic Animations CSS3
+
+<img src="https://webmanab-html.com/wp-content/uploads/2017/01/magic_animations.png" alt="magic_animations">
 
 クラスを付与することで、可愛い動きを実装できます。ユーザーがクリックした時など、UIのアクションに向いています。
 
@@ -113,6 +123,8 @@ $('.animate').on('click', function() {
 
 
 ### bouncejs
+
+<img src="https://webmanab-html.com/wp-content/uploads/2017/01/bouncejs.png" alt="bouncejs">
 
 少し激しめでトリッキーな動きが用意されています。デモページではプリセットされたアニメーションを直感的にエディット／プレビューしてカスタマイズできます。CSSのコードがエクスポートできるようになっていて、出力された`transform: matrix3d()`を利用した `@keyframes`アニメーションをコピペすることができます。
 
@@ -169,6 +181,8 @@ bounce
 
 ### voxel.css
 
+<img src="https://webmanab-html.com/wp-content/uploads/2017/01/voxelcss.png" alt="voxelcss">
+
 JavaScriptで四角い立方体を並べて、3D空間をCSSのプロパティで実現するライブラリ。光源の概念があるのがすごい。マウスイベントが簡単に実装できて箱の増減や回転のインタラクションをつけることができる。
 
 * [voxel.css](http://www.voxelcss.com/)
@@ -200,6 +214,8 @@ init(document.body);
 
 
 ### aos
+
+<img src="https://webmanab-html.com/wp-content/uploads/2017/01/aos.jpg" alt="aos">
 
 スクロールをトリガーに発生するアニメーション。`data-*`属性を使ってパラメータを渡します。豊富なイージングが用意されています。どれくらい可視範囲に入ってきてからどれくらいの時間で、というように細かい内容を直感的に記述できるところが魅力です。
 
@@ -237,6 +253,8 @@ AOS.init({
 
 ### animsition
 
+<img src="https://webmanab-html.com/wp-content/uploads/2017/01/animsition.png" alt="animsition">
+
 画面遷移にアニメーションを与えることができます。オプションやコールバックが豊富なので、画面遷移をなめらかに表現して体感速度を高めたり、リッチな表現に向いています。
 
 * [animsition](http://git.blivesta.com/animsition/)
@@ -246,6 +264,8 @@ AOS.init({
 
 
 ### Morf.js
+
+<img src="https://webmanab-html.com/wp-content/uploads/2017/01/joelambert.png" alt="joelambert">
 
 豊富に用意されたイージングを探索できます。
 
@@ -310,6 +330,8 @@ TweenMax.to('.animate_', // セレクタ
 
 ### anime.js
 
+<img src="https://webmanab-html.com/wp-content/uploads/2017/01/anime-js.png" alt="anime-js">
+
 「anime.js」にはランダム関数が用意されていたり、`svg`のパス上でのアニメーションや、オブジェクトの値を変化させることもできる表現力の高いライブラリ。オプションやイベントが豊富で人気があります。
 
 TweenMaxよりはパフォーマンスが劣るので、重いwebGLの処理などは得意ではありません。小さなアニメーションやインタラクションに実装します。
@@ -353,6 +375,8 @@ anime({
 
 
 ### velocity.js
+
+
 
 jQuery版とJavaSCript版が用意されています。javascriptの`requestAnimationFrame`を利用してアニメーションを実行します。jQueryの`animate()`関数の煩雑になりがちなところを、同じような記述で補完するような使い方ができます。
 
@@ -401,6 +425,8 @@ Velocity(element,
 
 
 ### cssanimate
+
+<img src="https://webmanab-html.com/wp-content/uploads/2017/01/cssanimate.png" alt="cssanimate">
 
 キーフレームをタイムラインで調整しながら、オブジェクトをドラッグしたり変形させたりして、プロパティの値を直感的に触りながらプレビューできます。
 

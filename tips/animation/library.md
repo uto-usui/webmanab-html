@@ -48,7 +48,7 @@
 
 ### animate.css
 
-`class`属性を付与して様々なアニメーションを実装します。有名で人気のあるCSSアニメーションライブラリ。
+`class`属性を付与して様々なアニメーションを実装します。とても有名で人気のあるCSSアニメーションライブラリ。
 
 * [animate.css](https://daneden.github.io/animate.css/)
 * [animate.css github](https://github.com/daneden/animate.css)
@@ -57,10 +57,111 @@
 <div class="animated infinite bounce">animation_</div>
 ```
 
-SCSSでMixinが用意されている「animate.scss」もあります。実務でカスタマイズの必要があるときはこっちを利用する方が、必要なものだけを必要な値で呼び出すことができるので自由度が高く便利です。
+SCSSでMixinが用意されている「animate.scss」もあります。実務でカスタマイズの必要があるときはこっちを利用すると、必要なアニメーションだけを必要なオプションを与えて呼び出すことができるので自由度が高く便利です。
 
-* [animate.scss](https://github.com/geoffgraham/animate.scss)
+* [animate.scss](https://github.com/geoffgraham/animax1te.scss)
 
+
+
+
+### animatable
+
+CSSのプロパティ別にアニメーションを実装した例のまとめ。オブジェクトをクリックするとプロパティを変化させている値の幅を見ることができます。
+
+* [animatable](http://leaverou.github.io/animatable/)
+
+
+
+
+### motion UI
+
+豊富なアニメーションがSassで用意されています。Mixinでいろいろな拡張ができるようになっていて、もともと用意されているアニメーションをミックスしたり、アニメーションに順序を与えることが簡単にできます。JavaScriptで制御することができるようになっています。ドキュメントはちょっと難しめ。
+
+* [motion-ui](http://zurb.com/playground/motion-ui)
+* [motion-ui github](https://github.com/zurb/motion-ui)
+
+
+
+
+### Magic Animations CSS3
+
+クラスを付与することで、可愛い動きを実装できます。ユーザーがクリックした時など、UIのアクションに向いています。
+
+* [magic_animations](https://www.minimamente.com/example/magic_animations/)
+* [magic_animations](https://github.com/miniMAC/magic)
+
+`class`名もなんだかかわいいです。
+
+
+#### javascript
+
+```
+
+$('.animate').on('click', function() {
+  $(this).addClass('magictime puffIn');
+});
+
+```
+
+#### html
+
+```
+<div class="animte">animate_</div>
+```
+
+
+
+
+### bouncejs
+
+少し激しめでトリッキーな動きが用意されています。デモページではプリセットされたアニメーションを直感的にエディット／プレビューしてカスタマイズできます。CSSのコードがエクスポートできるようになっていて、出力された`transform: matrix3d()`を利用した `@keyframes`アニメーションをコピペすることができます。
+
+そのコードを生成しているライブラリ本体を利用することも可能で、使いやすいです。
+
+* [bouncejs](http://bouncejs.com/)
+* [bounce.js github](https://github.com/tictail/bounce.js)
+
+
+#### javascript
+
+```
+
+var bounce = new Bounce();
+bounce
+  .translate({
+    from: { x: -300, y: 0 },
+    to: { x: 0, y: 0 },
+    duration: 600,
+    stiffness: 4
+  })
+  .scale({
+    from: { x: 1, y: 1 },
+    to: { x: 0.1, y: 2.3 },
+    easing: "sway",
+    duration: 800,
+    delay: 65,
+    stiffness: 2
+  })
+  .scale({
+    from: { x: 1, y: 1},
+    to: { x: 5, y: 1 },
+    easing: "sway",
+    duration: 300,
+    delay: 30,
+  })
+  .applyTo(document.querySelectorAll('.anim_'));
+
+```
+
+
+
+
+
+
+
+
+
+## アニメーションを実装するためのライブラリまとめ 《JavaScript》
 
 
 
@@ -105,6 +206,7 @@ init(document.body);
 * [aos](http://michalsnik.github.io/aos/)
 * [aos github](https://github.com/michalsnik/aos)
 
+
 #### html
 
 ```
@@ -113,7 +215,8 @@ init(document.body);
 
 `data-aos-anchor`に値を渡すと、自分ではない他の要素をトリガーにアニメーションを発生させることができます。
 
-初期値の設定は`init()`にオプションで値を渡します。レスポンシブデザインで、モバイル端末で指定を解除したいときは、`disable`に`ture`を渡すように式を記述します。
+初期値の設定は`init()`にオプションで値を渡します。レスポンシブデザインで、モバイル端末で指定を解除したいときは、`disable`に`true`を渡すように式を記述します。
+
 
 ####  javascript
 
@@ -132,53 +235,107 @@ AOS.init({
 
 
 
-
-### animatable
-
-CSSプロパティ別に実装した例のまとめ。
-
-* [animatable](http://leaverou.github.io/animatable/)
-
-
-### cssanimate
-
-キーフレームをタイムラインで調整しながら、プロパティの値を確認します。
-
-* [cssanimate](http://cssanimate.com/)
-
-
-### motion UI
-
-* [motion-ui](http://zurb.com/playground/motion-ui)
-
-
-### Magic Animations CSS3
-
-* [magic_animations](https://www.minimamente.com/example/magic_animations/)
-
-
-### bouncejs
-
-少し激しめなトリッキーな動き。
-
-* [bouncejs](http://bouncejs.com/)
-
-
 ### animsition
 
+画面遷移にアニメーションを与えることができます。オプションやコールバックが豊富なので、画面遷移をなめらかに表現して体感速度を高めたり、リッチな表現に向いています。
+
 * [animsition](http://git.blivesta.com/animsition/)
+* [animsition github](https://github.com/blivesta/animsition)
+
+
 
 
 ### Morf.js
 
-細かいイージングを探索できます。
+豊富に用意されたイージングを探索できます。
 
 * [Morf.js](http://www.joelambert.co.uk/morf/)
 
-### anime-js
+
+#### javascript
+
+```
+
+var elem = document.getElementById('elem');
+
+var trans = Morf.transition(elem, {
+  '-webkit-transform': 'translate3d(300px, 0, 0) rotate(90deg)',
+  'background-color': '#FF0000'
+}, {
+  duration: '1500ms',
+  timingFunction: 'bounce',
+  callback: function (elem) {
+    // some func
+  }
+});
+
+```
+
+
+
+### tweenmax
+
+Googleが推奨する最強のモーションを作るためのゥイーンライブラリ。
+
+* [tweenmax](https://greensock.com/tweenmax)
+
+他のライブラリに比べて、実行速度が速く、パフォーマンスに優れています。多くのオブジェクトを動かしたいときなどwebGLなど重い動作を実装したいときに真価を発揮します。モジュールを分解して読み込むことが可能なので、小分けにすると容量を軽くすることもできます。
+
+* [HTML5 Animation Speed Test](https://greensock.com/js/speed.html)
+
+記述においては、CSSの`transform`プロパティにアクセスしやすいところが素敵です。
+
+
+#### javascript
+
+```
+
+TweenMax.to('.animate_', // セレクタ
+  1.0, // 時間
+  {
+    x: 100,
+    repeat: -1,
+    ease: Cubic.easeOut
+  }
+);
+
+```
+
+#### 参考
+
+* [TweenMaxの使い方メモ](http://qiita.com/ANTON072/items/a1302f4761bf0ffcf525)
+
+
+
+
+### anime.js
+
+「anime.js」にはランダム関数が用意されていたり、`svg`のパス上でのアニメーションや、オブジェクトの値を変化させることもできる表現力の高いライブラリ。オプションやイベントが豊富で人気があります。
+
+TweenMaxよりはパフォーマンスが劣るので、重いwebGLの処理などは得意ではありません。小さなアニメーションやインタラクションに実装します。
 
 * [anime.js](http://anime-js.com/)
-    関数で値をもたせてあげることができるので、ランダム値の生成に便利です。`svg`のアニメーションやオブジェクトの値をアニメーションさせたり変化させることもできます。
+* [anime.js github](https://github.com/juliangarnier/anime)
+
+`elasticity`というはずみ具合をコントロールできるおもしろいパラメータがあります。
+
+#### javascript
+
+```
+
+anime({
+  targets: '.amimation_', // セレクタ
+  translateX: '5rem', // 現在地基準に移動
+  scale: [.75, .9], // .75から.9へ変化
+  delay: function(el, index) { // function(el, i){...}で複数の要素に処理
+    return index * 80;
+  },
+  direction: 'alternate',
+  loop: true,
+  elasticity: 800
+});
+
+```
 
 #### demo
 
@@ -186,16 +343,47 @@ CSSプロパティ別に実装した例のまとめ。
 * [LetterEffects](http://tympanus.net/Development/LetterEffects/)
 
 
-### tweenmax
+#### 参考
 
-Googleが推奨する最強のアニメーションライブラリ。
+* [軽量・簡単なのにいきいきしたアニメーションが付けられる！anime.jsを触ってみた](https://liginc.co.jp/302886)
+* [CSSライクでデザイナーに優しい！anime.jsはDOMアニメーションの新定番だ！](https://www.webprofessional.jp/animating-the-dom-with-anime-js/)
+* [アニメーションライブラリ決定版か!?anime.jsで軽量・軽快に実装！](http://qiita.com/kyota/items/c46f44340a384e059a5e)
 
-* [tweenmax](https://greensock.com/tweenmax)
 
 
-### velocityjs
+
+### velocity.js
+
+jQuery版とJavaSCript版が用意されています。javascriptの`requestAnimationFrame`を利用してアニメーションを実行します。jQueryの`animate()`関数の煩雑になりがちなところを、同じような記述で補完するような使い方ができます。
 
 * [velocityjs](http://velocityjs.org/)
+* [velocityjs github](https://github.com/julianshapiro/velocity)
+
+
+#### javascript
+
+```
+
+var element = document.querySelector('.animate_');
+
+Velocity(element,
+  {
+    translateX: 1000,
+    width: 200,
+  }, {
+    easing: 'easeInSine',
+    duration: 1000,
+    loop: true
+  }
+);
+
+```
+
+#### 参考
+
+* [Velocity.js よみほぐし](http://qiita.com/mag4n/items/90f2897351f236a1067b)
+
+
 
 
 ### turnbox.js
@@ -208,7 +396,37 @@ Googleが推奨する最強のアニメーションライブラリ。
 
 
 
+
+## アニメーションを作成するためのツール
+
+
+### cssanimate
+
+キーフレームをタイムラインで調整しながら、オブジェクトをドラッグしたり変形させたりして、プロパティの値を直感的に触りながらプレビューできます。
+
+* [cssanimate](http://cssanimate.com/)
+
+
+
+### waitanimate
+
+CSSの`@keyframes`を待機時間を含めたコードを吐き出すジェネレーターです。プリセットに素敵なアニメーションが実装されています。用意された`mixin`を利用してオリジナルのアニメーションを作成するのも簡単です。
+
+
+以前に紹介してました。
+
+* [CSSのkeyframesアニメーションで待機時間を指定したものを吐き出す WAIT! Animate](https://webmanab-html.com/tip/wait-animate/)
+
+
+
+
+
+
+
+
 ## svgアニメーション
+
+
 
 
 ### DrawSVG
@@ -216,9 +434,13 @@ Googleが推奨する最強のアニメーションライブラリ。
 * [jquery-drawsvg](http://leocs.me/jquery-drawsvg/)
 
 
+
+
 ### Lazy Line Painter
 
 * [lazylinepainter](http://lazylinepainter.info/)
+
+
 
 
 ### vivus
@@ -226,19 +448,27 @@ Googleが推奨する最強のアニメーションライブラリ。
 * [vivus](https://maxwellito.github.io/vivus/)
 
 
+
+
 ### Walkway
 
 * [walkway](https://connoratherton.com/walkway)
 
 
-### waitanimate
-
-* [CSSのkeyframesアニメーションで待機時間を指定したものを吐き出す WAIT! Animate](https://webmanab-html.com/tip/wait-animate/)
 
 
 ### mo.js
 
 * [mo.js](http://mojs.io/)
+
+
+
+
+
+
+
+
+
 
 
 

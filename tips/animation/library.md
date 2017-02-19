@@ -17,7 +17,7 @@
 
 <img src="https://webmanab-html.com/wp-content/uploads/2017/01/tuesday.png" alt="tuesday">
 
-0.3秒くらいの短時間で終了するように作られた要素の表示／非表示に使える、シンプルなCSSアニメーションライブラリ。用意された`class`を付与するだけで簡単にアニメーションが実装できます。ソースはLessで記述されています。
+0.3秒くらいの短時間で終了するように作られた要素の表示／非表示に使える、シンプルなCSSアニメーションライブラリ。用意された`class`属性を付与するだけで簡単にアニメーションが実装できます。ソースはLessで記述されています。
 
 * [Tuesday](http://shakrmedia.github.io/tuesday/)
 * [Tuesday github](https://github.com/ShakrMedia/tuesday)
@@ -33,7 +33,7 @@
 
 <img src="https://webmanab-html.com/wp-content/uploads/2017/01/csshake.png" alt="csshake">
 
-ガクガクブルブル震わせるCSSライブラリ。派手楽しいですが、とてもおしゃれ。用意されている`class`を付与します。SCSSで記述されていて、カスタマイズ用の`mixin`が用意されています。
+ガクガクブルブル震わせるCSSライブラリ。派手楽しいですが、とてもおしゃれ。用意されている`class`属性を付与します。SCSSで記述されていて、カスタマイズ用の`mixin`が用意されています。
 
 * [csshake](http://elrumordelaluz.github.io/csshake/)
 * [csshake github](https://github.com/elrumordelaluz/csshake/)
@@ -98,7 +98,7 @@ CSSのプロパティ別にアニメーションを実装した例のまとめ�
 クラスを付与することで、可愛い動きを実装できます。ユーザーがクリックした時など、UIのアクションに向いています。
 
 * [magic_animations](https://www.minimamente.com/example/magic_animations/)
-* [magic_animations](https://github.com/miniMAC/magic)
+* [magic_animations github](https://github.com/miniMAC/magic)
 
 `class`名もなんだかかわいいです。
 
@@ -118,6 +118,17 @@ $('.animate').on('click', function() {
 ```
 <div class="animte">animate_</div>
 ```
+
+
+
+
+
+
+
+
+
+
+## アニメーションを実装するためのライブラリまとめ 《JavaScript》
 
 
 
@@ -164,17 +175,6 @@ bounce
   .applyTo(document.querySelectorAll('.anim_'));
 
 ```
-
-
-
-
-
-
-
-
-
-## アニメーションを実装するためのライブラリまとめ 《JavaScript》
-
 
 
 
@@ -295,7 +295,7 @@ var trans = Morf.transition(elem, {
 
 ### tweenmax
 
-Googleが推奨する最強のモーションを作るためのゥイーンライブラリ。
+Googleが推奨する最強のモーションを作るためのトゥイーンライブラリ。
 
 * [tweenmax](https://greensock.com/tweenmax)
 
@@ -520,3 +520,4 @@ CSSの`@keyframes`を待機時間を含めたコードを吐き出すジェネ�
 
 
 おわります。
+

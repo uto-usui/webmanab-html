@@ -29,10 +29,10 @@ JavaScriptの`setTimeout()`を使うことで処理を遅らせることがで�
 
 ```
 
-setTImeout( myfunc, time);
+//setTImeout(myfunc, time);
 
-setTimeout(function(){
-    $('.js-late').addClass('active').text('One second later');
+setTimeout(function() {
+  $('.js-late').addClass('active').text('One second later');
   },
 1000)
 
@@ -46,8 +46,8 @@ setTimeout(function(){
 
 ```
 
-$('.js-late’).delay(1000).queue(function(){
-    $(this).addClass('active').text('One second later');
+$('.js-late’).delay(1000).queue(function() {
+  $(this).addClass('active').text('One second later');
 });
 
 ```

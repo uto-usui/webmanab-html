@@ -284,7 +284,8 @@ TweenMax.to(
 
 ### アニメーションをコントロールする
 
-アニメーションのメソッドを変数に格納して、状態をコントロールできるようにします。
+TweenMaxオブジェクトを作成して、状態をコントロールできるようにします。
+
 
 #### javascript
 
@@ -298,13 +299,10 @@ let $animItem = $('.js-anim'),
     $reverse = $('#js-reverse-btn'),
     $timeScale = $('#js-timeScale-btn');
 
-
-const anime = () => {
-  TweenMax.to($animItem, 1, { x: '+=100' });
-};
+const anime = TweenMax.to($animItem, 1, { x: '+=100' });
 
 $play.on('click', function(e) {
-  anime.play(2);  // 指定した秒数からスタート
+  anime.play(2);  // 指定した秒数からスタート (省略すると0から)
 });
 
 $pause.on('click', function(e) {
@@ -320,7 +318,7 @@ $reverse.on('click', function(e) {
 });
 
 $timeScale.on('click', function(e) {
-  anime.timeScale();  // スピードの変更(乗算)
+  anime.timeScale(2);  // スピードの変更(乗算)
 });
 
 

@@ -180,6 +180,16 @@ git rm -r --cached your.html
 
 
 
+### ローカルファイルの変更を前回のcommitまで戻す
+
+必要なファイルを削除してしまっていたり、修正の必要がなくなったとき、直前のcommit状態に戻します。
+
+```
+git reset --hard HEAD
+```
+
+
+
 
 
 

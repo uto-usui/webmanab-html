@@ -215,16 +215,19 @@ let nami = {
   name: 'Nami',
   age: 20,
   hair: {
-    length: long,
-    color: orange
+    length: 'long',
+    color: 'orange'
   }
 }
+
 let {hair, hair:{color}} = nami;
+
+console.log(color); // orange
 
 ```
 
 
-`key: 'newKey'`と記述すると元のプロパティと異なる名前の変数に値を割り当てることが可能です。
+`key: newKey`と記述すると元のプロパティと異なる名前の変数に値を割り当てることが可能です。
 
 ```
 
@@ -233,7 +236,10 @@ let nami = {
   age: 20,
   weapon: 'magic tact'
 }
-let {age: 'namiAge', name: 'namiName'} = nami;
+
+let {age: namiAge, name: namiName} = nami;
+
+console.log(namiName); // Nami
 
 
 ```

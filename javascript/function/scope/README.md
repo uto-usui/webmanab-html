@@ -62,7 +62,7 @@ function memberFunc () {
 ```
 
 var n = 100; // 1
-    
+
 function calcTwice(n) { // 2
   n * 2;
   return　n;
@@ -141,7 +141,7 @@ console.log(n); // error
 
 ```
 var scope = 'global';
-    
+
 function yourScope() {
   var scope  = 'local';
 
@@ -162,7 +162,7 @@ yourScope();
 
 
 
-
+おわります。
 
 
 

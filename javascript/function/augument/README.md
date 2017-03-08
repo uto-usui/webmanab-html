@@ -1,6 +1,6 @@
 # 引数の記法
 
-引数の記法はES2015で大きく変更され他ことで扱いやすくなりました。以下はES2015以前の引数の仕様や記法についてです。
+引数の記法はES2015で大きく変更されたことで扱いやすくなりました。以下はES2015以前の引数の仕様や記法についてです。
 
 
 
@@ -82,7 +82,7 @@ JavaScriptでは引数の数が決まっていない関数を定義すること�
 
 var sum = function () {
   var result = 0;
-  
+
   for( var i = 0, len = arguments.length; i < len; i++) {
     var n = arguments[i];
     result += n;
@@ -131,6 +131,7 @@ console.log(square({x:300, y:200}));
 
 
 
+おわります。
 
 
 

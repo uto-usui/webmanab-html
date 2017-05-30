@@ -88,7 +88,86 @@ length
 
 ### 部分文字列の抽出
 
-Stringメソッドでは、文字列からの部分文字列の抽出のメソッドに、`substring` `slice` `substr`があります。
+Stringメソッドでは、文字列からの部分文字列を抽出するメソッドに、`substring` `slice` `substr`の３つがあります。
+
+
+#### 文字列を抽出するメソッド
+
+substring / slice
+: 開始位置から終了位置の範囲指定
+
+substr
+: 開始位置からの文字数指定
+
+上記のように「`substring` / `slice`」と「`substr`」の違いは簡単です。`substring`と`slice`はもう少し細かい挙動の違いになっています。
+
+
+#### start > end
+
+```
+
+let word = '海賊王におれはなる！';
+console.log(word.substring(8,3)); // 王におれは
+console.log(word.slice(8,3)); // 空文字列
+
+```
+
+`substring`メソッドは引数のstartとendとの関係を入れ替えて、end+1文字目からstart文字目までを抽出する挙動になり、`slice`メソッドは空文字列を返します。
+
+
+#### endが負の数
+
+```
+
+let word = '海賊王におれはなる！';
+console.log(word.substring(7,-3)); // 海賊王におれは
+console.log(word.slice(2,-4)); // 王におれ
+
+```
+
+endに負の値が与えられている場合、`substring`は無条件に値が0の挙動になり、`slice`は文字列末尾からの文字数とカウントします。
+
+
+
+
+
+### サロゲートペア文字の長さ
+
+**`length`プロパティでは、マルチバイト文字を1文字としてカウントしますが、サロゲートペア文字は２文字としてカウント**します。サロゲートペア文字とは、2バイトで表現できない4バイトで表現される文字のことです。
+
+
+#### サロゲートぺア文字を1文字としてカウント
+
+```
+
+let text= '𩸽の煮物';
+let len = text.length;
+let num = text.split(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g).length - 1;
+console.log(text.length - num);
+
+```
+
+上記のコードで、サロゲートペア文字を1文字としてカウントすることが可能になります。
+
+
+
+
+
+
+
+
+
+## 数値を操作する Number
+
+Numberオブジェクトは、数値型の値を扱うためのラッパーオブジェクトで、数値を整形するための機能や特別な値を取り出すための専用のプロパティがあります。
+
+
+
+
+
+
+
+
 
 
 

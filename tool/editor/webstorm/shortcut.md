@@ -116,7 +116,7 @@ Bookmarkを確認する
 : option + cmd + J
 
 要素を削除する
-: ahift + cmd + fn + delete
+: shift + cmd + fn + delete
 
 
 ## git

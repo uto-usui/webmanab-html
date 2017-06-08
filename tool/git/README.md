@@ -189,7 +189,15 @@ git reset --hard HEAD
 ```
 
 
+### addを取り消す
 
+前回のaddでステージにあげたファイルを全て取り消します。
+
+```
+
+git reset HEAD .
+
+```
 
 
 

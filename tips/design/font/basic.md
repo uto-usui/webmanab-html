@@ -30,3 +30,20 @@ Myriad
 
 Minion
 : 優雅さとシンプルさ
+
+
+## typekit
+
+Clavo
+: シンプルな見出し、サンセリフの本文と相性○
+
+Proxima Nova
+: なんにでも使える
+
+Effra
+: コピー
+
+Adelle
+: セリフの見出しにマッチするサンセリフフォント
+
+

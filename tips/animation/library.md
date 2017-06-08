@@ -419,6 +419,15 @@ Velocity(element,
 
 
 
+### t-scroll
+
+スクロールをトリガーにAnimation.cssに影響を受けたアニメーションを実行します。
+オプションが豊富なので扱いやすい印象です。
+
+* [t-scroll](http://t-scroll.com/)
+
+
+
 
 
 ## アニメーションを作成するためのツール

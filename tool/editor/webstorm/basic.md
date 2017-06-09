@@ -29,7 +29,7 @@ prefferencesメニュー > Editor > General > Appearanceの項目にある「Sho
 
 ## Git関連
 
-[意外と知らないIntelliJ IDEAのGit管理機能いろいろ（´-`）](http://qiita.com/yoppe/items/fd03607d4d4f191d32dd)
+[意外と知らないIntelliJ IDEAのGit管理機能いろいろ](http://qiita.com/yoppe/items/fd03607d4d4f191d32dd)
 
 
 

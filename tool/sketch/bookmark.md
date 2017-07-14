@@ -14,6 +14,13 @@
 
 ## プラグイン
 
+
+### Sketchpacks for macOS
+
+Browse, manage, and auto-update your Sketch plugins from the menu bar
+
+* [Sketchpacks for macOS](https://sketchpacks.com/)
+
 * [timuric/Content-generator-sketch-plugin: Sketch app plugin for generating dummy data such as avatars, names, photos, geo data etc](https://github.com/timuric/Content-generator-sketch-plugin)
 
 * [HSL Color Picker](https://github.com/ashung/hsl_color_picker)

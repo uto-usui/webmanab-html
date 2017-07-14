@@ -121,6 +121,9 @@ Bookmarkを確認する
 
 ## git
 
+add
+: cmd + option + A
+
 コミット
 : cmd + K
 

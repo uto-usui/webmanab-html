@@ -3,30 +3,166 @@
 ユーザーインターフェイスを構築するためのプログレッシブフレームワークです。Vue は初めから少しづつ適用していけるように設計されています。Vue.js を使い始めたり、他のライブラリや既存のプロジェクトに統合したりすることはとても簡単です。一方、モダンなツールやサポートライブラリと併せて利用することで、洗練されたシングルページアプリケーションを開発することも可能です。
 
 
+## データを要素に表示する
 
+Vue アプリケーション は、Vue コンストラクタ関数でルート Vue インスタンスを作成することによって起動されます。
 
-## 描画性能
+```
 
-UIを描画する時、負荷の高いになり、また、残念ながら、そういった低レベルの操作をより速くするライブラリは存在しません。
+const app = new Vue({
+  el: '#app',
+    data: {
+      yourName: 'world'
+    }
+});
 
-これを早くする方法は
-必要な DOM 操作の回数を最小にします
-これらの DOM 操作の上に乗るオーバーヘッド(純粋な JavaScript 評価)をできる限り小さくします。これReactよりVueが優れています。
-JavaScript オーバーヘッドは、必要な DOM 操作を計算するメカニズムに直接関係しています。Vue と React の両方が Virtual DOM を利用していますが、Vue の仮想 DOM 実装(snabbdom の fork) は、はるかに軽量なため、React よりもオーバーヘッドが少なくなります。
-これが意味するのは、コンポーネントよりも DOM 要素がより多く描画されるような通常のアプリケーションにおいて、Vue は React よりも大きく優れた性能を発揮するということです。しかしながら、1 つの普通のコンポーネントがそれぞれの要素を描画するような極端なケースでは、Vue は大抵もっと遅くなってしまうでしょう。しかし、これでこの話は終わりではありません。
-Vue と React は両者ともに、状態を持たず、インスタンス化できない関数型コンポーネントを提供しています - そしてこれにより、オーバーヘッドはより少なくなります。これが性能が重要な状況で使用された時、Vue は再び React よりも速くなります。
+```
 
-
-## ルーティング
-
-大きなアプリケーションのために、Vue も React も強力なルーティングの解法を提供しています。React コミュニティは状態管理という観点でとても革新的な解法を持っています（例えば、Flux/Redux）。これらの状態管理のパターンと、さらに Redux 自体は簡単に Vue のアプリケーションと統合することができます。実際に、Vue はこのモデルをさらに一歩進めた Vuex という、Vue と深く統合されている Elm に触発された状態管理の解法をもっており、私たちはそれがより優れた開発体験をもたらすと考えています。
-
-Vue における状態管理やルーティング（やその他の関心事）のための関連ライブラリはすべて公式にサポートされていて、コアのライブラリとともに更新され続けているということです。React はそのような関心事はコミュニティにまかせており、より断片的なエコシステムを作り上げています。それはより大衆的ではありますが、React のエコシステムは Vue のそれを大きく上回って豊かです。
+引数のオブジェクトのelプロパティは、アプリケーションとして扱うノードの要素のセレクタです。dataに与えたプロパティ(yourName)の値は、ノードから`{{}}`で参照できます。アプリケーションのデータを、テキストとして表示します。
 
 
 
 
-## トランジション
+## データと要素の値をバインディングする
+
+v-modelディレクティブを使うと、入力とアプリケーションの状態(プロパティ)を互いに結びつける(双方向バインディング)ことができます。
+
+```
+
+<div class="field">
+  <label class="label">Hello "{{yourName}}"</label>
+  <div class="control">
+    <input class="input" v-model="yourName" type="text" placeholder="enter a name here" />
+  </div>
+</div>
+
+```
 
 
-[transitions](https://jp.vuejs.org/v2/guide/transitions.html)
+
+## クラスをバインディングして動的に切り替える
+
+v-bindディレクティブは、プロパティや属性を動的に切り替えます。v-bind:classの構文では、class属性をバインディングさせます。
+
+
+```
+
+<label class="checkbox">
+  <input type="checkbox" v-model="done">
+  <span v-bind:class="{'done': done}"> "{{todo}}"</span>
+</label>
+
+```
+
+```
+
+const app = new Vue({
+  el: '#app',
+  data: {
+    todo: '',
+    done: false
+  }
+});
+
+```
+
+チェックボックスの`v-model`属性をトリガーに`done`の真偽値が切り替わることで、クラスがトグルします。
+
+
+
+
+## 配列からデータを取り出す
+
+`v-for`ディレクティブで配列からデータを取り出します。変数 in データ配列という形式で記述します。
+
+```
+
+<ul class="label">
+  <li v-for="todo in todos">
+    <label class="checkbox">
+      <input type="checkbox" v-model="todo.done">
+      <span v-bind:class="{'done': todo.done}"> "{{todo.text}}"</span>
+    </label>
+  </li>
+</ul>
+<div class="control">
+  <input class="input" v-model="todos[0].text" placeholder="add a todo here" type="text" />
+</div>
+
+```
+
+```
+
+const app = new Vue({
+  el: '#app',
+  data: {
+    todos: [
+      {
+        text: 'task A',
+        done: true
+      },
+      {
+        text: 'task B',
+        done: false
+      },
+    ],
+  }
+});
+
+```
+
+
+
+## イベントの作成と実装
+
+`v-on`ディレクティブは:引数のベントにリスナーを定めます。`v-on:click`ディレクティブで、クリックイベントを仕掛け、その内容を`methods`プロパティに記述します。
+
+```
+
+<ul>
+  <li v-for="todo in todos">
+    <label class="checkbox">
+      <input type="checkbox" v-model="todo.done">
+      <span v-bind:class="{'done': todo.done}"> "{{todo.text}}"</span>
+    </label>
+  </li>
+</ul>
+
+```
+
+```
+
+const app = new Vue({
+  el: '#app',
+  data: {
+    todoText: '',
+    todos: [
+      {
+        text: 'task A',
+        done: true
+      },
+      {
+        text: 'task B',
+        done: false
+      },
+        ]
+  },
+  methods: {
+    addTodo: function() {
+      let newTodo = this.todoText.trim();
+      if (!newTodo) {
+        return;
+      }
+
+        this.todos.push(
+          {
+          text: newTodo,
+          done: false
+          }
+        );
+        this.todoText = '';
+      }
+    }
+  });
+
+```

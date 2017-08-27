@@ -166,3 +166,49 @@ const app = new Vue({
   });
 
 ```
+
+
+
+
+## 算出プロパティで変更を検知して値を返す
+
+`computed`に定義した算出プロパティは依存関係に基づきキャッシュされ、リアクティブ依存が変更されたときにだけ再算出します。
+
+```
+
+computed: {
+  remaining: function() {
+    let count = 0,
+    todos = this.todos,
+    length = todos.length;
+
+    for (var i = 0; i < length; i++) {
+      if (!todos[i].done) {
+        count++;
+      }
+    }
+
+      return count;
+    }
+  }
+
+```
+
+関数が与えられたプロパティ(remaining)はgetter関数として機能しています。関数で扱うデータが変更されたとき、戻り値を更新します。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

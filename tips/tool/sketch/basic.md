@@ -47,7 +47,7 @@ Overridesでシンボルをカスタマイズできる。
 
 ### Sketch Runner
 
-Sketchの機能やシンボルにSpotlightみたいにアクセスすることができるようになる。
+Sketchの機能やシンボルにSpotlightみたいにアクセスすることができるランチャーなる。
 
 起動
 : cmd + shift + '

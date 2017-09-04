@@ -1,6 +1,8 @@
 # webstormの基本
 
 
+
+
 ## 初期設定
 
 
@@ -9,6 +11,7 @@
 prefferencesメニュー > Editor > General > Appearanceの項目にある「Show whitespaces」にチェックを入れる。
 
 これで可視化が有効になるのですがデフォルトでは色が見えづらいことがあるので、prefferencesメニュー > Editor > Color & Fonts > General > Text > Whitespaceに好きな色を指定します。
+
 
 
 
@@ -23,6 +26,10 @@ prefferencesメニュー > Editor > General > Appearanceの項目にある「Sho
 パネルを開く
 : Tools / Deployment / Browse Remote Host
 
+
+
+
+## 便利な機能
 
 
 

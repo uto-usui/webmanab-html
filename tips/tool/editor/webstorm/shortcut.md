@@ -1,6 +1,9 @@
-# ショートカットを集めました
+# Webstormのショートカットを集めました
 
 [Keyboard Shortcuts By Category](https://www.jetbrains.com/help/webstorm/2016.2/keyboard-shortcuts-by-category.html)
+
+
+
 
 
 ## 一般
@@ -17,7 +20,7 @@
 単語やブロックで選択範囲を縮小
 : option + ↓
 
-ショートカットの検索
+コマンドの検索
 : cmd + shift + A
 
 Bookmarkする
@@ -34,6 +37,8 @@ Bookmarkを確認する
 
 変数名・関数名・クラス名を検索
 : comd + option + o
+
+
 
 
 
@@ -72,6 +77,7 @@ Bookmarkを確認する
 
 
 
+
 ## 編集
 
 現在と次の行を１行に
@@ -98,6 +104,7 @@ Bookmarkを確認する
 
 
 
+
 ## ファイルの展開
 
 全検索
@@ -113,6 +120,9 @@ Bookmarkを確認する
 : cmd + shift + E
 
 
+
+
+
 ## Emmet
 
 要素をラップする要素を作る
@@ -120,6 +130,9 @@ Bookmarkを確認する
 
 要素を削除する
 : shift + cmd + fn + delete
+
+
+
 
 
 ## git

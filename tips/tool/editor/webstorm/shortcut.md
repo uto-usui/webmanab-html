@@ -12,15 +12,9 @@
 : cmd + shift + C
 
 クリップボードを開く
-: command　＋　shift　＋　V
+: cmd　＋　shift　＋　V
 
-単語やブロックで選択範囲を拡大
-: option + ↑
-
-単語やブロックで選択範囲を縮小
-: option + ↓
-
-コマンドの検索
+webstormのコマンドを検索
 : cmd + shift + A
 
 Bookmarkする
@@ -29,15 +23,34 @@ Bookmarkする
 Bookmarkを確認する
 : cmd + F3
 
-クラス、メソッド、関数の情報を表示
-: cmd + カーソルを合わせる
-
 環境設定を開く
 : cmd + ,
+
+開いているファイルの切り替え
+: control + tab
+
+開いているファイルのタブ前後移動
+: cmd + shift + [ or ]
+
+
+
+
+## JavaScript
 
 変数名・関数名・クラス名を検索
 : comd + option + o
 
+クラス、メソッド、関数の情報を表示
+: cmd + カーソルを合わせる
+
+宣言か呼び出し元に移動
+: cmd + b
+
+変数の利用箇所に移動
+: cmd + option + f7
+
+アウトラインをポップアップ
+: cmd + F12
 
 
 
@@ -47,20 +60,8 @@ Bookmarkを確認する
 エディタ内の上下移動
 : fn + ↑ or ↓
 
-タブの移動
-: cmd + shift + [ or ]
-
-宣言か呼び出し元に移動
-: cmd + b
-
 選択行を上下に移動
 : option + shift + ↑ or ↓
-
-変数の利用箇所に移動
-: cmd + option + f7
-
-アウトラインをポップアップ
-: cmd + F12
 
 クラス名を指定して移動
 : cmd + O
@@ -101,13 +102,35 @@ Bookmarkを確認する
 長さの異なる文字列の一括編集
 : option + double click
 
+指定したディレクトリ内を検索
+: cmd + shift + F
 
+指定したディレクトリ内を一括置換
+: cmd + shift + R
+
+開きタグから閉じタグまでを選択
+: alt + ↑ or ↓
+
+コードクリンナップ
+: cmd + alt + L
+
+矩形選択
+: alt + 選択
+
+次の同じ単語を選択
+: cmd + G
+
+同じ単語を複数選択
+: control + G
+
+同じ単語を全て選択
+: control + cmd + G
 
 
 
 ## ファイルの展開
 
-全検索
+いろいろ全検索
 : double shift
 
 ファイル名検索

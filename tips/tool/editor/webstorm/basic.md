@@ -8,10 +8,18 @@
 
 ### ホワイトスペースの可視化
 
-prefferencesメニュー > Editor > General > Appearanceの項目にある「Show whitespaces」にチェックを入れる。
+prefferences > Editor > General > Appearanceの項目にある「Show whitespaces」にチェックを入れる。
 
 これで可視化が有効になるのですがデフォルトでは色が見えづらいことがあるので、prefferencesメニュー > Editor > Color & Fonts > General > Text > Whitespaceに好きな色を指定します。
 
+
+### ファイルツリーから該当ディレクトリ(ファイル)を除外
+
+webstormの内部的な検索から、ディレクトリやファイルを除外したい時、これを設定します。具体的には、コンパイルファイルを除外することで、関数やクラスの検索から除外するために使ったりします。
+
+prefferences > directories > 任意のファイルを選択
+
+* [Directories](https://www.jetbrains.com/help/webstorm/directories.html)
 
 
 

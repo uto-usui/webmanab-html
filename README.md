@@ -1,7 +1,12 @@
 # webmanab-html
 for webmanab writing
 
-ブログ執筆用にここにテキストをまとめていきます。
+Here, I summarize manuscripts for writing blogs.
 
-writer
-:  yuto usui
+In the published manuscript, I write the word "I am finished" at the end of the sentence.
+
+
+## writer
+
+uto usui
+web developer / UI designer / grandstar,inc. CBO

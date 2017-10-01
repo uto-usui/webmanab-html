@@ -22,26 +22,40 @@ SSH keyなければ作成してからコピペです。
 
 #### SSH keyの存在確認
 
-`ls -al ~/.ssh`
+```
+
+ls -al ~/.ssh
+
+```
 
 ここでSSH keyがあればGitHubのAdd SSHkeyでSSHをペーストします。
 
 
 #### SSHの新規作成
 
-`ssh-keygen -t rsa -C [my-email-address@mail.com]`
+```
+
+ssh-keygen -t rsa -C [my-email-address@mail.com]
+
+```
 
 そのあと Enter押す / 自分のシステムのpass / 自分のシステムのpass
 
 
 #### SSHをクリップボードにコピー
 
-`pbcopy &lt; ~/.ssh/id_rsa.pub`
+```
+
+pbcopy &lt; ~/.ssh/id_rsa.pub
+
+```
 
 
 #### 登録できたかテスト
 
-`ssh -T [git@githab.com]`
+```
+ssh -T [git@githab.com]
+```
 
 
 
@@ -53,66 +67,110 @@ SSH keyなければ作成してからコピペです。
 
 #### クローン
 
-`git clone [url]`
+```
+
+git clone [url]
+
+```
 
 任意のディレクトリに移動して、ローカルにリモートリポジトリをクローンします。
 
 
 #### ローカルリポジトリを作成する
 
-`git init`
+```
+
+git init
+
+```
 
 クローンしない場合は任意のディレクトリでローカルリポジトリを作成。
 
 #### Backlogにリモートリポジトリを作成する
 
-`git remote add [master] [HTTPS-url]`
+```
+
+git remote add [master] [HTTPS-url]
+
+```
 
 Backlogでgit設定して、HTTPSのurlをコピーして持ってきます。
 
 
 #### 変更されたファイルの表示
 
-`git status`
+```
+
+git status
+
+```
 
 変更されたファイルだけを確認します。
 
 
 #### ファイルやディレクトリをインデックスに登録
 
-`git add [filepattern]`
+```
+
+git add [filepattern]
+
+```
 
 ファイルパターンの指定はワイルドカードとかディレクトリ指定とか色々できます。
 全てのファイルをインデックスに登録する場合は、
 
-`git add .`
+```
+
+git add .
+
+```
 
 
 #### ファイルをコミットする
 
-`git commit -m "[message]"`
+```
+
+git commit -m "[message]"
+
+```
 
 インデックスに登録したファイルをメッセージをつけてコミットします。
 
 
 #### 履歴の確認
 
-`git log`
+```
+
+git log
+
+```
 
 
 #### push 変更した内容をリモートリポジトリに反映
 
-`git push [repository] [branchname]`
+```
+
+git push [repository] [branchname]
+
+```
 
 
 #### pull リモートリポジトリから最新の状態を取得
 
-`git pull [repository] [branchname]`
+```
+
+git pull [repository] [branchname]
+
+```
 
 
 #### ファイルの削除
 
-`git rm [file]`
+```
+
+git rm [file]
+
+```
 
 
 
@@ -122,13 +180,20 @@ Backlogでgit設定して、HTTPSのurlをコピーして持ってきます。
 
 #### リモートリポジトリの複製
 
-`git clone [url]`
+```
+
+git clone [url]
+
+```
 
 
 #### リモートリポジトリの追加
 
-`git remote add [repository] [url]`
+```
 
+git remote add [repository] [url]
+
+```
 
 
 
@@ -137,12 +202,20 @@ Backlogでgit設定して、HTTPSのurlをコピーして持ってきます。
 
 #### ユーザ名の変更
 
-`git config --global user.name [username]`
+```
+
+git config --global user.name [username]
+
+```
 
 
 #### メールアドレスの変更
 
-`git config --global user.email [mailaddress]`
+```
+
+git config --global user.email [mailaddress]
+
+```
 
 
 
@@ -159,21 +232,27 @@ Backlogでgit設定して、HTTPSのurlをコピーして持ってきます。
 #### gitignore
 
 ```
+
 your_directory
 your.html
+
 ```
 
 
 #### terminal
 
 ```
+
 git rm -r --cached your_directory/
+
 ```
 
 または
 
 ```
+
 git rm -r --cached your.html
+
 ```
 
 上記コマンドのあと、コミットしてプッシュする。

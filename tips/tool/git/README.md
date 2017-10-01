@@ -185,7 +185,9 @@ git rm -r --cached your.html
 必要なファイルを削除してしまっていたり、修正の必要がなくなったとき、直前のcommit状態に戻します。
 
 ```
+
 git reset --hard HEAD
+
 ```
 
 
@@ -200,4 +202,36 @@ git reset HEAD .
 ```
 
 
+### 複数のSSHキーの作成
+
+プライベートと、会社用など使い分ける際は、複数のSSHキーが必要になる時があります。
+
+#### 移動
+
+```
+
+cd ~/.ssh/
+
+```
+
+#### 鍵の作成
+
+`[your-mail-address@mail.com]` と `[your-file-name]` は任意です。
+
+```
+
+ssh-keygen -t rsa -C "[your-mail-address@mail.com]" -f [your-file-name]
+
+```
+
+#### コピー
+
+
+先ほどしていしたファイル名を入力します。
+
+```
+
+pbcopy < ~/.ssh/[your-file-name].pub
+
+```
 

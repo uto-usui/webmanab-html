@@ -173,6 +173,14 @@ git rm [file]
 ```
 
 
+#### ファイル名の変更
+
+```
+
+git mv [file name] [new name]
+
+```
+
 
 
 ### リモート操作のこと

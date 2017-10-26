@@ -86,7 +86,7 @@ let root = new Vue({
    </div>`,
 
   components: {
-    placeholdImage: placeholdImage
+    placeholdImage
   }
 
 });
@@ -95,8 +95,7 @@ root.$mount( '#app' );
 
 ```
 
-注意点として、独自タグではハイフン区切りで記述して、クラスはキャメルケースで記述します。独自タグを定義しているので、`<placehold-image>`の記述だけで、何度も子
-コンポーネントを呼び出すことができます。
+注意点として、独自タグではハイフン区切りで記述して、クラスはキャメルケースで記述します。独自タグを定義しているので、`<placehold-image>`の記述だけで、何度も子コンポーネントを呼び出すことができます。
 
 
 

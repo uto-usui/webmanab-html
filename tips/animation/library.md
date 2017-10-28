@@ -13,6 +13,27 @@
 
 
 
+### Motion CSS
+
+ひととおりののUIに必要なアニメーションを網羅したライブラリ。簡単に扱えて、共通のクラスと任意のアニメーションのクラスをつけると動作します。後発
+
+* [motion CSS](http://pavlyukpetr.com/awesome/documentation.html)
+* [motion-css github](https://github.com/pavlyukpetr/motion-css)
+
+特徴としては、delay用のクラスや無限ループ用のクラスが用意されているので、簡易的に順次アニメーションを実行したりすることもできます。
+
+```
+
+<div class="animation fade-in-left">anim_</div>
+<div class="animation fade-in-left delay-1-5s">anim_delay</div>
+
+```
+
+サイトには、jQueryで記述した、可視範囲に入ったらアニメーションを実行するスクリプトが用意されているので、それを使うとスクロールに連動したアニメーションを実行することができます。
+
+
+
+
 ### Tuesday
 
 <img src="https://webmanab-html.com/wp-content/uploads/2017/01/tuesday.png" alt="tuesday">
@@ -23,7 +44,9 @@
 * [Tuesday github](https://github.com/ShakrMedia/tuesday)
 
 ```
+
 <div class="animated tdDropInLeft">animate_</div>
+
 ```
 
 

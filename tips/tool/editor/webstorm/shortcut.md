@@ -1,6 +1,13 @@
-# Webstormのショートカットを集めました
+# Webstormで知っておきたいショートカットを集めました
 
-[Keyboard Shortcuts By Category](https://www.jetbrains.com/help/webstorm/2016.2/keyboard-shortcuts-by-category.html)
+WebStormはモダンなJavaScriptをスマートに開発するためのIDEです。
+
+ぼくのまわりでは、JavaScriptを書くならデザイナーもエンジニアもWebStormがおすすめ、という雰囲気もありメインストリームな感じなのを受けて、布教用とは言えないですが、ショートカット集をつくってみました。
+
+ショートカットを覚えておくと、IDEの機能を少しづつ知っていくことにもつながるので、よく使う機能をピックアップしています。
+
+* [WebStorm: The Smartest JavaScript IDE by JetBrains](https://www.jetbrains.com/webstorm/)
+* [Keyboard Shortcuts By Category](https://www.jetbrains.com/help/webstorm/2016.2/keyboard-shortcuts-by-category.html)
 
 
 
@@ -8,14 +15,14 @@
 
 ## 一般
 
+webstormのコマンドを検索
+: cmd + shift + A
+
 ファイルの絶対パスをコピー
 : cmd + shift + C
 
 クリップボードを開く
 : cmd　＋　shift　＋　V
-
-webstormのコマンドを検索
-: cmd + shift + A
 
 Bookmarkする
 : option + F3
@@ -35,7 +42,7 @@ Bookmarkを確認する
 
 
 
-## JavaScript
+## JavaScript 関連
 
 変数名・関数名・クラス名を検索
 : comd + option + o
@@ -52,7 +59,7 @@ Bookmarkを確認する
 変数の利用箇所に移動
 : cmd + option + f7
 
-未使用のモジュールのimport削除
+import　しているモジュールの整理 (ソート/未使用のものを削除)
 : control + option + O
 
 選択したコードをメソッドとして抽出
@@ -60,6 +67,13 @@ Bookmarkを確認する
 
 アウトラインをポップアップ
 : cmd + F12
+
+クイックドキュメント (JSDocコメントや、 メソッドの詳細) を表示
+: F1
+
+引数の情報を表示
+: cmd + P
+
 
 
 
@@ -73,7 +87,7 @@ Bookmarkを確認する
 : option + shift + ↑ or ↓
 
 クラス名を指定して移動
-: cmd + O
+: cmd + o
 
 ブロックの先頭か末尾に移動
 : option + cmd + [ or ]
@@ -94,7 +108,7 @@ Bookmarkを確認する
 : control + shift + J
 
 コードフォーマットの適用
-: cmd + option + L
+: cmd + option + l
 
 マルチカーソル(同じ項目にカーソルを増やす)
 : ある文字列を文字列を選択 + control + G
@@ -118,13 +132,13 @@ Bookmarkを確認する
 : alt + 選択
 
 次の同じ単語を選択
-: cmd + G
+: cmd + g
 
 同じ単語を複数選択
-: control + G
+: control + g
 
 同じ単語を全て選択
-: control + cmd + G
+: control + cmd + g
 
 
 
@@ -149,7 +163,7 @@ Bookmarkを確認する
 ## Emmet
 
 要素をラップする要素を作る
-: option + cmd + J
+: option + cmd + j
 
 要素を削除する
 : shift + cmd + fn + delete
@@ -161,7 +175,7 @@ Bookmarkを確認する
 ## git
 
 add
-: cmd + option + A
+: cmd + option + a
 
 コミット
 : cmd + K
@@ -169,6 +183,11 @@ add
 プッシュ
 : cmd + shift + K
 
+
+
+
+
+おわります。
 
 
 

@@ -60,10 +60,13 @@ Bookmarkを確認する
 : cmd + option + f7
 
 import　しているモジュールの整理 (ソート/未使用のものを削除)
-: control + option + O
+: control + option + o
 
 選択したコードをメソッドとして抽出
-: cmd + option + M
+: cmd + option + m
+
+選択したコードを変数に
+: cmd + option + v
 
 アウトラインをポップアップ
 : cmd + F12

@@ -2,9 +2,9 @@
 
 WebStormはモダンなJavaScriptをスマートに開発するためのIDEです。
 
-ぼくのまわりでは、JavaScriptを書くならデザイナーもエンジニアもWebStormがおすすめ、という雰囲気もありメインストリームな感じなのを受けて、布教用とは言えないですが、ショートカット集をつくってみました。
+ぼくのまわりでは、JavaScriptを書くならデザイナーもエンジニアもWebStormがおすすめ、という雰囲気があります。メインストリームな感じなのを受けて、布教用とは言えないですが、ショートカット集をつくってみました。
 
-ショートカットを覚えておくと、IDEの機能を少しづつ知っていくことにもつながるので、よく使う機能をピックアップしています。
+ショートカットを覚えておくと、WebStormの機能を少しづつ知っていくことにもつながるので、よく使う機能をピックアップしています。
 
 * [WebStorm: The Smartest JavaScript IDE by JetBrains](https://www.jetbrains.com/webstorm/)
 * [Keyboard Shortcuts By Category](https://www.jetbrains.com/help/webstorm/2016.2/keyboard-shortcuts-by-category.html)
@@ -80,7 +80,11 @@ MDNのドキュメントを開く
 引数の情報を表示
 : cmd + P
 
+クラスのメソッド引数をメンバー引数へ展開
+: option + enter => Create Field
 
+getter/setter/constructorを生成
+: classの中の文字列で control + enter
 
 
 

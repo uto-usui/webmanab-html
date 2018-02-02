@@ -83,8 +83,12 @@ MDNのドキュメントを開く
 クラスのメソッド引数をメンバー引数へ展開
 : option + enter => Create Field
 
+Vue コンポーネントを切り出す
+: option + enter => Extract Vue Component
+
 getter/setter/constructorを生成
 : classの中の文字列で control + enter
+
 
 
 

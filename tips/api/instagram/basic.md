@@ -1,53 +1,39 @@
-# できるだけ早く簡単にinstagramのフィードをAPIで取得する -『API』
+# できるだけ早く簡単に instagram のフィードを API で取得する -『API』
 
+自分の instagram アカウントの投稿のみを API を使って取得したいときの駆け足の tips です。
+とにかく簡単に JavaScript のみで実装したい時に参考にしてください。
 
-自分のinstagramアカウントの投稿のみをAPIを使って取得したいときの駆け足のtipsです。
-とにかく簡単にJavaScriptのみで実装したい時に参考にしてください。
+## API 取得用のクライアントの作成
 
-
-## API取得用のクライアントの作成
-
-1. ブラウザでinstagramに[ログイン](https://www.instagram.com/)
+1. ブラウザで instagram に[ログイン](https://www.instagram.com/)
 2. フッターのナビゲーション「API」
 3. メインビジュアルのボタン「Register Your Application」
 4. デヴェロッパー登録
 5. メインビジュアルのボタン「Register Your Application」
 6. 上部のボタン「Register a new Client 」
-7. Detailsタブの Application Name / Description / Website URL / Valid redirect URIs (基本Website URLと同じでok) を入力
-8. Secyrityタブの「Disable implicit OAuth」のチェックをはずす
+7. Details タブの Application Name / Description / Website URL / Valid redirect URIs (基本 Website URL と同じで ok) を入力
+8. Secyrity タブの「Disable implicit OAuth」のチェックをはずす
 9. 「Resister」ボタン
-10. CLIENT IDをコピーしてメモしておく
+10. CLIENT ID をコピーしてメモしておく
 
+## USER ID の取得
 
-
-
-## USER IDの取得
-
-1. [find instagram user id](https://smashballoon.com/instagram-feed/find-instagram-user-id/)でidを取得
-2. Usernameを入力
-3. User IDをコピーしてメモしておく
-
-
-
+1. [find instagram user id](https://smashballoon.com/instagram-feed/find-instagram-user-id/)で id を取得
+2. Username を入力
+3. User ID をコピーしてメモしておく
 
 ## アクセストークンの取得
 
 1. https://instagram.com/oauth/authorize/?client_id=CLIENT_ID&redirect_uri=REDIRECT_URL&response_type=tokenに「CLIENT_ID」と「REDIRECT_URL」を先ほど作成した内容に置き換えてアクセス
 2. 「Authorize」ボタン
 3. 「REDIRECT_URL」のページへ遷移
-4. URLの末尾に「#access_token=*」の形式で「access_token」が返っているのでコピーしてメモ
+4. URL の末尾に「#access_token=\*」の形式で「access_token」が返っているのでコピーしてメモ
 
-
-
-
-## プラグインInstafeed.jsで表示
+## プラグイン Instafeed.js で表示
 
 取得と描画は「Instafeed.js」を利用すると、簡単に出力することができます。
 
-* [Instafeed.js](http://instafeedjs.com/)
-
-
-
+- [Instafeed.js](http://instafeedjs.com/)
 
 #### html
 
@@ -58,7 +44,6 @@
 
 
 ```
-
 
 #### javascript
 
@@ -78,7 +63,7 @@ var myfeed = new Instafeed({
     success: function(){
       // コールバック
     }
-    
+
   });
 myfeed.run();
 
@@ -111,11 +96,8 @@ feed.run();
 
 上記のように、公式では「Load more」ボタンを設置するサンプルが用意されています。
 
-* [Instafeed.js](http://instafeedjs.com/)
+- [Instafeed.js](http://instafeedjs.com/)
 
 ただ、このスクリプトを利用すると、アクセストークンなどが丸見えになってしまいます。悪用などされると厄介なので、その辺りはケースに応じて対応したいですね。
-
-
-
 
 おわります。

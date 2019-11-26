@@ -1,6 +1,6 @@
 # Network パネルでの調査 Research of network processing
 
-ネットワーク処理で取得したリソースは DevTools の Network パネルでわかりやすく可視化できます。こここでは、ネットワーク処理の発生したリソースがリスト化されます。HTML の返却、CSS や JavaScript、画像ファイルなどのサブリソースのリクエスト、XMLHttpRequest や WebSocket の通信処理も表示されます。
+ネットワーク処理で取得したリソースは DevTools の Network パネルでわかりやすく可視化できます。ここでは、ネットワーク処理の発生したリソースがリスト化されます。HTML の返却、CSS や JavaScript、画像ファイルなどのサブリソースのリクエスト、XMLHttpRequest や WebSocket の通信処理も表示されます。
 
 ## 基本的な使い方
 
@@ -32,27 +32,39 @@ DOMContentLoaded は DOM ツリーの構築完了、load はサブリソース�
 
 headers
 : 対象リクエストの基本情報、リクエストヘッダ、レスポンスヘッダ、クエリパラメータを確認できます。
+
 preview
 : リソースのプレビューを確認できます。テキストであればテキスト、JSON であればパースされた状態で表示され、画像などであればプレビューと、縦横サイズや MIME type なども確認できます。
+
 response
-:リソースのパースされていない生データ
+: リソースのパースされていない生データ
+
 Cookies
 : リクエストとそのレスポンスに付与された Cookie
+
 Timing
-リクエストしてからダウンロードが完了するまでの各プロセスにかかった時間。Resource Timing API で同様のデータを得ることができます。 Waterfall カラムでホバーしていると、このデータが表示されます。
+: リクエストしてからダウンロードが完了するまでの各プロセスにかかった時間。Resource Timing API で同様のデータを得ることができます。 Waterfall カラムでホバーしていると、このデータが表示されます。
+
 stalled
 : プロキシのネゴシエーションを含んだ、TCP の接続制限による接続待ちなどによって発生するリクエスト開始までの時間
+
 Proxy Negotiation
 : プロキシサーバとの接続確立までの時間
+
 DNS Lookup
 : 新しいドメインへの DNS ルックアップに使った時間
+
 Initial Connection
 : SSL/TLS や TCP のネゴシエーションを含めた初期接続確立までの時間
+
 SSL
 : SSL/TLS のハンドシェイクに使った時間
+
 Request sent
 : リクエストの送信に使った時間
+
 Waiting（TTFB - Time To First Byte）
 : リクエストを送信してからレスポンスの最初の 1 バイトがブラウザに到達するまでの時間。時間が長いものほど、サーバがリクエストを受け取ってからレスポンスを返すまでに時間がかかっている
+
 Content Download
 : サーバからのレスポンスデータを受信するのに使った時間

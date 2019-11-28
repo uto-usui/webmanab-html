@@ -98,6 +98,31 @@ width, height, top, leftのようなプロパティを変更すると、レイ�
 
 使用してはいけないわけではないですが、同じ結果を得られる方法がないか検討するといいかもしれません。
 
+## CSS アニメーションと GPU アクセラレーション
+
+GPUアクセラレーションは、レンダリング処理をCPU（Central Processing Unit）からGPU（Graphics Processing Unit）に委譲し効率化することです。CPUは全般的なロジックの処理を行えますが、GPUはグラフィックの処理に特化しています。
+
+ブラウザのGPUアクセラレーションは、要素のテクスチャを独立したComposite Layer としてGPUに転送し、GPUの命令によってテクスチャを操作したり描画データの合成をしたりすることで高速なレンダリングを実現します。このことをCompositing といいます。
+
+CSS の `transform: scale / translate / rotate`  `opacity`  はGPUで高速に処理でき、要素に対してCompositingを有効にすれば、CPUで処理するよりもスムーズなアニメーションを期待できます。
+
+### will-change で Compositing を有効化
+
+`will-change` プロパティは、ほかのプロパティの変更可能性をあらかじめブラウザに伝えて、Compositingなど最適化の準備をするように利用します。
+
+```scss
+.target {
+  will-change: transform;
+  transition: transform 2s;
+  transform: scale(1);
+  &.is-active {
+    transform: scale(0);
+  }
+}
+```
+
+ただしGPUアクセラレーションはアニメーションする可能性がある要素でなければ意味はなく、ムダにCompositingのためのメモリを消費することになります。なので必要な限られた要素にのみ使うようにします。また、要素が大きかったり、その数が多ければ、処理の思い場合があります。
+
 ## ページを高速化の探求と CSS
 
 CSS からのアプローチでページを高速化するテクニックはそこまで複雑ではないですが、デザインとの兼ね合いもあったり、設計段階で頭に入れておきたいことでもあります。またそのためにもレンダリングパイプラインでやっていることを理解しておく必要があると思います。

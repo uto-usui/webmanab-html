@@ -31,7 +31,23 @@ youtube-dl [url]
 youtube-dl -i [url]
 ```
 
+### 一番品質のいい mp4 をダウンロード
 
+まず、アップロードされているファイル形式を調べます。
+
+```
+
+youtube-dl -F PrqBrTd6pb0
+
+```
+
+取得した一覧のなかから品質の良い mp4 と m4a のフォーマットコードを組み合わせて DL します。
+
+```
+
+ youtube-dl -f 137+140 --merge-output-format mp4 xxxidxxx
+ 
+```
 
 ## 音声のみダウンロードする
 動画をダウンロードした後に、 ffmpeg で自動的に音声ファイルに変換します。`-x` で音声ファイルに抜き出し、`--audio-format` で形式を指定、`--audio-quality` でビットレートを指定します。

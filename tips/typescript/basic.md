@@ -28,11 +28,11 @@ const ruffy: number = 19
 
 ### String
 
-String 型は　`””` `’’` `\`\`` で囲います。
+String 型は `””` `''` ` `` ` で囲います。
 
 ```ts
 
-const ruffy: string = ‘monkey’
+const ruffy: string = 'monkey'
 
 ```
 
@@ -42,8 +42,8 @@ Array 型は2つ記述する方法があります。
 
 ```ts
 
-const ruffy: string[] = [‘monkey’, ‘gomugomu’]
-const ruffy: Array<string> = [‘monkey’, ‘gomugomu’]
+const ruffy: string[] = ['monkey', 'gomugomu']
+const ruffy: Array<string> = ['monkey', 'gomugomu']
 
 ```
 
@@ -53,8 +53,8 @@ tuple 型を使うと、固定数の要素の型がわかっている配列の�
 
 ```ts
 
-const ruffy: [string, number] = [‘monkey’, 19] // ok
-const ruffy: [string, number] = [19, ‘monkey’] // error
+const ruffy: [string, number] = ['monkey', 19] // ok
+const ruffy: [string, number] = [19, 'monkey'] // error
 
 ```
 
@@ -64,7 +64,7 @@ any 型は型が不明な変数の型チェックを無効にし、コンパイ�
 
 ```ts
 
-let ruffy: any = ‘monkey’
+let ruffy: any = 'monkey'
 ruffy = 0
 ruffy = null
 
@@ -76,11 +76,11 @@ unknown 型は型安全な any として利用します。値の代入は自由�
 
 ```ts
 
-const ruffy: any = ‘monkey’
-ruffy.push(‘D’) // ok
+const ruffy: any = 'monkey'
+ruffy.push('D') // ok
 
-const ruffy: unknown = ‘monkey’
-ruffy.push(‘D’) // error
+const ruffy: unknown = 'monkey'
+ruffy.push('D') // error
 
 ```
 
@@ -132,7 +132,7 @@ object 型は、プリミティブではない値を表す型です。
 ```ts
 
 let ruffy: object = {}
-ruffy = ‘monkey’ // error
+ruffy = 'monkey' // error
 
 ```
 
@@ -161,7 +161,7 @@ union types は、複数の型のうち `|`　で区切ったいずれかの型�
 
 ```ts
 
-const ruffy: (string | number)[] = [‘monkey’, 19]
+const ruffy: (string | number)[] = ['monkey', 19]
 
 ```
 
@@ -170,7 +170,7 @@ const ruffy: (string | number)[] = [‘monkey’, 19]
 ```ts
 
 let ruffy: string | null = null
-ruffy = ‘monkey’
+ruffy = 'monkey'
 
 ```
 
@@ -182,11 +182,11 @@ String literal types を利用すると決められた文字列しか許容し�
 
 ```ts
 
-let name: ‘ruffy’ | ‘nami’
-name = ‘ruffy’
-Name = ‘nami’
+let name: 'ruffy' | 'nami'
+name = 'ruffy'
+Name = 'nami'
 
-name = ‘sanji’ // error
+name = 'sanji' // error
 
 ```
 
@@ -213,7 +213,7 @@ year = 2 // error
 const ruffy = 17
 let nami: typeof ruffy
 
-nami = ’17’
+nami = '17'
 
 ```
 
@@ -224,7 +224,7 @@ nami = ’17’
 ```ts
 
 const ruffy = {
-  name: ‘monkey’,
+  name: 'monkey',
   age: 19,
 }
 
@@ -241,8 +241,8 @@ TypeScript の強力な型推論ではなく、実装者が型の詳細を指定
 
 ```ts
 
-const el = document.querySelector<HTMLDivElement>(‘#el’)
-const canvas = document.querySelector(‘#canvas’) as HTMLCanvasElement
+const el = document.querySelector<HTMLDivElement>('#el')
+const canvas = document.querySelector('#canvas') as HTMLCanvasElement
 
 ```
 
@@ -273,7 +273,7 @@ class Ruffy {
   }
 }
 
-const ruffy = new Ruffy(‘Monkey’, ‘D.’, ‘Ruffy’)
+const ruffy = new Ruffy('Monkey', 'D.', 'Ruffy')
 
 ```
 

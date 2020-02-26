@@ -1,6 +1,6 @@
 # TypeScript basic
 
-TypeScript の初学者向けの型の文法をまとめます。
+TypeScript 初学者向けの文法などについてまとめます。TypeScript は型付けできる JavaScript です。型システムはプログラミングにおいてはとても重要で、またJavaScript の新しい策定中の機能も取り込んでくれているので、 AltJs として1番人気があり、ぼくはすべてのプロジェクトで導入しています。
 
 ## basic types
 
@@ -136,11 +136,109 @@ ruffy = 'monkey' // error
 
 ```
 
+## type / interface
+
+オブジェクト内の詳細を型定義するには、その変数宣言に直接インラインで記述していく方法がありますが、 `type` / `interface` を利用すると、オブジェクトのまとまりとして型を定義できます。
+
+interface
+: 名前のあるオブジェクト型を定義
+
+type
+: 無名オブジェクトを宣言して、それに名前をつける
+
+inline
+: 無名オブジェクトをそのままインラインアノテーションとして利用
+
+`interface` と `type` は命名するというところが共通していて、`type` とインラインは無名オブジェクト型というところが共通しています。これを機能別にまとめます。
+
+### interface
+
+* クラスやオブジェクトの規格を定義する
+* 継承できる
+* 同名要素を宣言するとマージされる
+* intersection / union / tuple として利用できない
+* Mapped Types が利用できない
+
+```ts
+
+type Name = {
+  name: string
+}
+type Age = {
+  age: number
+}
+
+type Human = Name & Age
+
+```
+
+### type alias
+
+* 型や型の組み合わせに別名を付ける
+* intersection type で継承のような実装ができる
+* 同名要素が宣言できない
+* intersection / union / tuple として利用できる
+* Mapped Types が利用できる
+
+```ts
+
+interface Name = {
+  name: string
+}
+
+interface Human extends Name {
+  age: number
+}
+
+```
+
+#### more info
+
+* [TypeScript使いに質問です。InterfaceとTypeの使い分けはどうしていますか？どっちか一方だけに統一していますか？また有用なリンクがありますか？ - Quora](https://jp.quora.com/TypeScript%E4%BD%BF%E3%81%84%E3%81%AB%E8%B3%AA%E5%95%8F%E3%81%A7%E3%81%99-Interface%E3%81%A8Type%E3%81%AE%E4%BD%BF%E3%81%84%E5%88%86%E3%81%91%E3%81%AF%E3%81%A9%E3%81%86%E3%81%97%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99#ocfzR)
+* [TypeScriptのInterfaceとTypeの比較 - Qiita](https://qiita.com/tkrkt/items/d01b96363e58a7df830e)
+
+### readonly
+
+`readonly` 修飾子を利用すると、`const` のように振る舞う再代入できないプロパティを定義できます。
+
+```ts
+
+interface Sex {
+  readonly sex: string
+}
+
+const ruffy: Sex = {
+  sex: 'male',
+}
+
+ruffy.sex = '' // error
+
+```
+
+### ? 省略可能のプロパティ
+
+`?` は省略可能のプロパティを表現します。
+
+```ts
+
+interface Human {
+  age: number
+  sex?: string
+}
+
+const ruffy: Human = {
+  age: 19,
+}
+
+```
+
 ## next step  types
+
+TypeScript のもう一歩踏み込んだ機能についてまとめます。
 
 ### Intersection types
 
-intersection types を使うと、宣言した複数の型を `&` でマージできます。
+intersection types を使うと、複数の型を `&` でマージできます。
 
 ```ts
 
@@ -157,7 +255,7 @@ type AB = A & B
 
 ### Union types
 
-union types は、複数の型のうち `|`　で区切ったいずれかの型が、当てはまることを表現します。
+union types は、複数の型のうち `|` で区切ったいずれかの型が、当てはまることを表現します。
 
 ```ts
 
@@ -265,11 +363,13 @@ class Ruffy {
   protected first: string
   private d: string
   public last: string
+  public readonly sex: string
 
   constructor(first: string, d: string, last: string) {
     this.first = first
     this.d = d
     this.last = last
+    this.sex: 'male'
   }
 }
 

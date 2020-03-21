@@ -30,8 +30,8 @@ Nuxt.config.js へ webpack の loader 設定を記述します。
 
 ```js
 
-import Fiber from ‘fibers’
-import Sass from ‘sass’
+import Fiber from 'fibers'
+import Sass from 'sass'
 
 const sass = {
   implementation: Sass,

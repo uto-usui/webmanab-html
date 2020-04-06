@@ -18,15 +18,17 @@ Nuxt は Vue / Vue-Router / Vue-Meta / Vuex をインクルードしているの
 
 Nuxt をかんたんに始めるため、create-nuxt-app を使ってテンプレートを利用します。
 
-```/terminal.bath
+```bath
+
 npx create-nuxt-app your-title
+
 ```
 
 ### Nuxt のコマンド
 
 開発するためにコマンドを叩きます。
 
-```/terminal.bath
+```bath
 
 cd ./your-title
 yarn run dev
@@ -37,34 +39,34 @@ yarn run dev
 
 開発ファイルから静的なファイルを生成するには
 
-```/terminal.bath
+```bath
 
 yarn run generate
 
 ```
 
-とコマンドを叩くと、 dist フォルダが生成されます。このフォルダをこのまま FTP でアップすると OK です。
+とコマンドを叩くと、 dist フォルダが生成されます。このフォルダをこのまま FTP でアップするなり、デプロイすると OK です。Netlify などのホスティングサービスを利用するとコミットをトリガーにデプロイの自動化など、簡単に実装できるので便利です。
 
 ## Nuxt のディレクトリ構造
 
-Nuxt ではディレクトリ構造を把握しておく必要があります。
+Nuxt ではディレクトリ構造にルールがあり、よく把握しておく必要があります。
 
 - [ディレクトリ構造 - Nuxt.js](https://ja.nuxtjs.org/guide/directory-structure)
 
 この中でコンポーネントをアトミックデザインで開発する要素としてのディレクトリを紹介しておきます。
 
 - sass variable -> atoms
-- components/\*.vue -> molecules / organisms
-- layouts -> template
-- pages -> pages
+- components/ -> molecules / organisms
+- layouts/ -> template
+- pages/ -> pages
 
-### layouts/\*.vue -> template
+### layouts/ -> template
 
 ページのテンプレートになるレイアウトを layouts ディレクトリに置きます。ヘッダー／フッター／メインコンテンツなどのレイアウトをここで定義します。
 
 どのレイアウトを使うか指定するのには、ページコンポーネント（pages ディレクトリの .vue ファイル）の `layout` プロパティに指定します。 `default.vue` ファイルが、デフォルトのテンプレートとして利用されるようになります。
 
-```pages/blog/index.vue
+```HTML
 
 <script>
 export default {
@@ -80,27 +82,62 @@ export default {
 
 ### pages/\*.vue -> pages
 
-Nuxt はこのディレクトリ内のすべての \*.vue ファイルを読み込み、vue-router の設定を生成します。 pages のツリー構造がサイトのディレクトリ構造に反映されます。pages ディレクトリ内のファイル変更は常に監視されていて、ページを追加したときなど、タスクの再起動は不要になっています。また、JSON などのデータを注入して動的にディレクトリを生成することもできます。
+Nuxt はこのディレクトリ内のすべての vue ファイルを読み込み、vue-router の設定を生成します。 pages のツリー構造がサイトのディレクトリ構造に反映されます。pages ディレクトリ内のファイル変更は常に監視されていて、ページを追加したときなど、タスクの再起動は不要になっています。また、JSON などのデータを注入して動的にディレクトリを生成することもできます。
 
 これがアトミックデザインの pages に相当します。
 
-### components/\*.vue -> molecules / organisms
+### components/ -> molecules / organisms
 
 Vue のコンポーネントファイルを components ディレクトリに格納します。
 
 ここが粒度によりアトミックデザインの molecules や organisms に相当します。
 
-Nuxt での Atoms はコンポーネント共通の変数や mixin などで定義するイメージです。読み込み方は[後述](https://qiita.com/uto-usui/items/51b9bf35ebdad0e1ee4b#sass%E3%81%AE%E5%85%B1%E9%80%9A%E3%81%AE%E5%A4%89%E6%95%B0%E3%82%84mixin%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%80)しています。
+### Sass functions -> atoms
+
+ぼくのプロジェクトでは Nuxt での Atoms はコンポーネント共通の変数や mixin などで定義するイメージです。まず、vue-loader で sass(scss) を解釈したいので、node-sass と sass-loader のパッケージをインストールします。
+
+```bath
+
+yarn add --dev node-sass sass-loader
+
+```
+
+style-resources というパッケージを、Nuxt の Modules に追加して利用します。
+
+```bath
+
+yarn add @nuxtjs/style-resources
+
+```
+
+nuxt.config.js に次のように設定します。
+
+```js
+
+module.exports = {
+  modules: ['@nuxtjs/style-resources'],
+  styleResources: {
+   scss: [
+    '~/assets/sass/foundation/variable/_index.scss',
+    '~/assets/sass/foundation/mixin/_index.scss'
+    ]
+  }
+}
+
+```
+
+Nuxt Style Resources は LESS や Stylus にも対応しているので、同様の方法で必要なリソースを読み込むことができます。
 
 ## nuxt.config.js
 
-nuxt.config.js は nuxt の設定ファイルです。ここにいろいろ記述するのが nuxt の関門な気がします。webpack.config.js の代わりにこれを触る感じですね。
+nuxt.config.js は nuxt の設定ファイルです。先に modules を利用して、Sass の取り回しをしましたが、ここにいろいろ記述するのが nuxt の関門な気がします。webpack.config.js の代わりにこれを触る感じですね。
 
 ### head への設定
 
 `titleTemplate` オプションで、アプリケーションで使うタイトルのテンプレートを指定します。各ページやレイアウトで title オプションをセットすると、レンダリング前に`%s` がプレースホルダーとして機能し、タイトルが反映されます。
 
-```nuxt.config.js
+```js
+
 module.exports = {
   head: {
     titleTemplate: '%s >> uto-usui',
@@ -113,51 +150,62 @@ module.exports = {
     ]
   },
 }
+
 ```
-
-### Sass の共通の変数や mixin を読み込む
-
-これについては以前まとめました。
-
-- [《Nuxt.js》Sass の共通の変数や mixin を一括で各コンポーネントに読み込む方法。 - Qiita](https://qiita.com/uto-usui/items/6b745203fa6fad577877)
-
-ここがアトミックデザインの atoms に相当します。
 
 ### CSS を外部化する
 
 デフォルトでは CSS は JavaScript 内のアセットとしてインクルードされてしまいますが、静的な CSS としても出力可能です。
 
-```nuxt.config.js
+```js
 
-build: {
-  extractCSS: true
+module.exports = {
+  build: {
+    extractCSS: true
+  }
 }
 
 ```
 
 ### ルートディレクトリの設定
 
-プロジェクトがドメインルート直下でない場合や、開発環境と本番環境に差異がある場合は、`router`にそのパスを指定します。nuxt のサイト内リンクはルート相対パスで張られるので、この設定が必要になります。
+プロジェクトがドメインルート直下でない場合や、開発環境と本番環境に差異がある場合は、`router`にそのパスを指定します。nuxt のサイト内リンク `<n-link to="/">` はルート相対パスで張られるので、この設定が必要になります。
 
-```nuxt.config.js
+```js
 
-router: {
-  base: process.env.NODE_ENV === 'dev' ? '/' : '/test/'
+module.exports = {
+  router: {
+    base: process.env.NODE_ENV === 'dev' ? '/' : '/test/'
+  }
 }
 
 ```
 
 ### autoprefixer の設定をカスタマイズ
 
-これは以前まとめました。
+Nuxt で CSS(Sass) をコンパイルすると、ありがたいことに autoprefixer がベンダープレフィクスを自動で適用してくれます。面倒で不毛な作業を Nuxt は設定不要でレガシーブラウザに対応してくれるわけですが、これをブラウザ要件に合わせ流には autoprefixer の設定をカスタマイズします。たとえば次のように nuxt.config.js に記述します。
 
-- [《Nuxt.js》CSS のオートプレフィクスをカスタマイズする方法。Grid の IE 対応も！ - Qiita](https://qiita.com/uto-usui/items/d72b8fc44e1b10f99d6a)
+```js
+
+module.exports = {
+  build: {
+    postcss: {
+      preset: {
+        autoprefixer: {
+          grid: true,
+        },
+      },
+    },
+  }
+}
+
+```
 
 ### エイリアスを設定する
 
 Nuxt ではルートへのエイリアスが用意されていて、 `~` or `@` でアクセスできます。
 
-```pages/index.vue
+```html
 
 <script>
 import Button from '~/components/Button.vue'
@@ -167,8 +215,9 @@ import Button from '~/components/Button.vue'
 
 これを拡張して、エイリアスを追加するには、
 
-```nuxt.config.js
+```js
 
+module.exports = {
   build: {
     extend (config) {
       config.resolve.alias['Sass'] =  path.resolve(__dirname, './assets/sass/');
@@ -176,29 +225,12 @@ import Button from '~/components/Button.vue'
       config.resolve.alias['Images'] =  path.resolve(__dirname, './assets/images/');
     },
   }
+}
 
 ```
 
 のようにします。
 するとコンポーネントで `@import "~Sass/object/component/_item";` のようにアクセスできるようになります。
-
-### 重複するインポートをまとめる
-
-複数の pages コンポーネントでライブラリを import している場合、各ページごとにライブラリを読み込んだ状態でビルドされるので、build.vendor に指定して共通のファイルとしてまとめます。
-
-```nuxt.config.js
-
-  build: {
-    vendor: [
-      'gsap'
-    ]
-  }
-
-```
-
-ただしこれは v2 で改善され、不要になりました。
-
-- [🚀 Nuxt 2 is coming! Oh yeah! – Nuxt.js – Medium](https://medium.com/nuxt/nuxt-2-is-coming-oh-yeah-212c1a9e1a67#a688)
 
 ### 動的なディレクトリ（ルート）を作る
 
@@ -206,16 +238,16 @@ Nuxt では JSON などのデータから、動的なディレクトリを生成
 
 次のような JSON を用意します。
 
-```blog.json
+```json
 
 [
   {
     "id": "01",
-    "title": "Hi",
+    "title": "Hi"
   },
   {
     "id": "02",
-    "title": "HiHi",
+    "title": "HiHi"
   }
 ]
 
@@ -223,8 +255,9 @@ Nuxt では JSON などのデータから、動的なディレクトリを生成
 
 `nuxt.config.js` の `generate` で、生成するためのルートを定義します。
 
-```nuxt.config.js
+```js
 
+module.exports = {
   generate: {
     routes(callback) {
       const blogData = require('./assets/json/blog.json')
@@ -232,6 +265,7 @@ Nuxt では JSON などのデータから、動的なディレクトリを生成
       callback(null, routes)
     }
   }
+}
 
 ```
 
@@ -245,15 +279,70 @@ Nuxt では JSON などのデータから、動的なディレクトリを生成
 
 create-nuxt-app de プロジェクトを始めると `http://localhost:3000` にアクセスして開発を進めることになりますが、https 環境で開発を進めたいときもあるとおもいます。
 
-これは別記事でまとめました。
+仮に server/index.js という感じの場所に次のようなスクリプトを用意します。
 
-- [《Nuxt.js》Vue CLI で始めたプロジェクトで https://localhost:3000 でサーバを起動する方法。 - Qiita](https://qiita.com/uto-usui/items/4c1c2970c81b8965021a)
+```js
+
+const { Nuxt, Builder } = require('nuxt');
+
+const https = require('https');
+const fs = require('fs');
+const isProd = (process.env.NODE_ENV === 'production');
+const port = process.env.PORT || 3000;
+
+const config = require('../nuxt.config.js');
+config.dev = !isProd;
+const nuxt = new Nuxt(config);
+
+// Build only in dev mode with hot-reloading
+if (config.dev) {
+  new Builder(nuxt).build()
+    .then(listen)
+    .catch((error) => {
+      console.error(error);
+      process.exit(1);
+    });
+}
+else {
+  listen();
+}
+
+function listen() {
+
+  const options = {
+    key: fs.readFileSync('./server/cert.pem'),
+    cert: fs.readFileSync('./server/cert.pem'),
+  };
+
+  https
+    .createServer(options, nuxt.render)
+    .listen(port);
+  console.log('Server listening on `localhost:' + port + '`.');
+}
+
+```
+
+https サーバを構築するのに、`https.createServer(options, nuxt.render)` の部分にあるように、署名済み公開鍵と秘密鍵をオプションで渡してやる必要があります。そこで、署名済み公開鍵と秘密鍵の両方を含む pem ファイルを作成します。先ほど作成した server ディレクトリで、次のコマンドを入力します。
+
+```bath
+
+openssl req -days 365 -new -nodes -newkey rsa:4096 -x509 -keyout cert.pem -out cert.pem
+
+```
+
+node でスクリプトを動かすとサーバーが起動します。
+
+```bath
+
+node server/index.js
+
+```
 
 ### WebStorm のパスを解決
 
 IDE の WebStorm で、`~` と `@` のパスがサジェストされるように、webpack.config.js を作成し、次のように記述します。
 
-```webpack.config.js
+```js
 
 module.exports = {
   resolve: {
@@ -265,7 +354,7 @@ module.exports = {
       '~': path.resolve(__dirname),
     }
   }
-};
+}
 
 ```
 
@@ -275,8 +364,9 @@ module.exports = {
 
 Nuxt のページ遷移で、子ルートがあるときはスクロール位置をキープする、というデフォルトの挙動があります。子ルートをレンダリングするときスクロールポジションを初期化させたいときは page ごとに scrollToTop: true と設定しますが、これが効かない状況のときは、nuxt.config.js に次の内容を記述します。
 
-```nuxt.config.js
+```js
 
+module.exports = {
   router: {
     scrollBehavior(to, from, savedPosition) {
       if (savedPosition) {
@@ -295,14 +385,15 @@ Nuxt のページ遷移で、子ルートがあるときはスクロール位置
       }
     },
   },
+}
 
 ```
 
 ### ビュー全体のレンダリングを待つ
 
-これは Vue の知見でもありますが、page/\* のコンポーネントで、ページ遷移時に`window.onload` みたいな処理をしたいとき、次のようなコードを書きます。
+これは Vue の知見でもありますが、page/ のコンポーネントで、ページ遷移時に `window.onload` みたいな処理をしたいとき、次のようなコードを書きます。
 
-```pages/sample.vue
+```html
 
 <script>
 export default {
@@ -321,12 +412,16 @@ export default {
 
 ### IE11 へのポリフィル
 
-頭を悩ましたくない IE のやつですが、プロダクションではまだまだ当たり前ですよね … polyfill.io を使うと柔軟に対応できるかと思います。 `nuxt.config.js` から `head` 内に読み込ませます。
+頭を悩ましたくない IE のやつですが、プロダクションではまだまだ当たり前ですよね … polyfill.io を使うと、実装も簡単だし柔軟に対応できるかと思います。 `nuxt.config.js` の `head` に指定して読み込みます。
 
-```nuxt.config.js
-head: {
-  script: [{ src: ‘https://cdn.polyfill.io/v2/polyfill.min.js?features=default’ }],
-},
+```js
+
+module.exports = {
+  head: {
+    script: [{ src: 'https://cdn.polyfill.io/v2/polyfill.min.js?features=default' }],
+  },
+}
+
 ```
 
 - [Polyfill service](https://cdn.polyfill.io/v2/docs/examples)
@@ -335,7 +430,7 @@ head: {
 
 GA トラッキングの gtag.js のモジュールが公開されていなかったので（たぶん）、plugins ディレクトリに gtag.js というスクリプトを作りました。
 
-```plugins/gtag.js
+```js
 
 export default ({app, store}) => {
 
@@ -364,11 +459,11 @@ export default ({app, store}) => {
 }
 ```
 
-ここでは `store.state.title` で vuex の state にセットしている title にアクセスしています。省略しますが、page/\*.vue でタイトルを State に渡すメソッドを叩いて受け渡すような処理をしています。
+ここでは `store.state.title` で vuex の state にセットしている title にアクセスしています。省略しますが、page/ でタイトルを State に渡すメソッドを叩いて受け渡すような処理をしています。
 
 nuxt.config.js で読み込みます。
 
-```nuxt.config.js
+```js
 
   plugins: [
     { src: '~plugins/gtag.js', ssr: false }
@@ -388,13 +483,14 @@ nuxt.config.js で読み込みます。
 
 ### port と host を変更する
 
-アクセスする開発用サーバの port と host を変更します。
-Host を設定すると、同一のネットワークのことなるデバイスからアクセスできるようになるので、 モバイルデバイスの実機デバッグや virtualbox 環境のデバッグなど効率よくはかどるので、設定しておくのがオススメです。
+アクセスする開発用サーバの port と host を変更します。Host を設定すると、同一のネットワークのことなるデバイスからアクセスできるようになるので、 モバイルデバイスの実機デバッグや virtualbox 環境のデバッグなど効率よくはかどるので、package.json にコマンドを登録しておくのがオススメです。
 
-```package.json
+```json
 
-"scrips": {
-  "dev:development": PORT=8080 HOST=0.0.0.0 nuxt"
+{
+  "scrips": {
+    "dev:development": "PORT=8080 HOST=0.0.0.0 nuxt -o"
+  }
 }
 
 ```
@@ -403,9 +499,9 @@ Host を設定すると、同一のネットワークのことなるデバイス
 
 Nuxt を GitLab CI でビルドして GitLab Pages に自動デプロイするためのサンプルです。
 
-プロジェクトルートに次のコードを設置して、master にコミットすると CI が動きます。
+プロジェクトルートの `.gitlab-ci.yml に次のコードを設置して、master にコミットすると CI が動きます。
 
-```.gitlab-ci.yml
+```yml
 
 image: node:latest
 pages:
@@ -428,42 +524,66 @@ pages:
 
 なぜか、CI 上で `~` と `@` のエイリアスの解決ができなかったので、nuxt.config.js で再定義します。
 
-```nuxt.config.js
+```js
 
+module.exports = {
   build: {
     extend() {
       config.resolve.alias['~'] =  path.resolve(__dirname);
       config.resolve.alias['@'] =  path.resolve(__dirname);
     }
   }
+}
 
 ```
 
-GitLab CI すごく便利です ○
+GitLab CI すごく便利ですが GitHub CI でも同じように実装できます。.github/workflows/gh-pages.yml に次のように記述します。
 
-## まとめ
+```yml
+name: github pages
 
-というわけで、Nuxt で静的サイトを作るための小粒な知識のまとめでした。
-Transition や Vuex などのことを省いてしまっていますが、強力なドキュメントがあるのでそちらを参考にすればよいかと思います＊
+on:
+  push:
+    branches:
+    - master
 
-- [Vuex ストア - Nuxt.js](https://ja.nuxtjs.org/guide/vuex-store/)
-- [API: transition プロパティ - Nuxt.js](https://ja.nuxtjs.org/api/pages-transition#transition-%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3)
+jobs:
+  build-deploy:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@master
 
-Nuxt を使うようになって、ほんとうに静的サイト構築が楽になったので、各地でオススメしています！
+    - name: setup node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.16'
 
-ぜひとも 😇
+    - name: install
+      run: yarn install
 
-### Nuxt を深めるための資料
+    - name: build
+      run: yarn generate:GitHub
+
+    - name: deploy
+      uses: peaceiris/actions-gh-pages@v2.3.2
+      env:
+        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./dist
+
+```
+
+## Nuxt を深めるための資料
 
 - [「結局 Nuxt.js って何がいいの？」に対する回答](https://slides.com/potato4d/vuejs_meetup7#/)
 - [Web サイト制作にこそ Nuxt.js がベストマッチである理由 - SCOUTER 開発者ブログ](https://techblog.scouter.co.jp/entry/2018/03/19/115229)
 - [note を Nuxt.js で再構築した話 - Speaker Deck](https://speakerdeck.com/fukuiretu/notewonuxt-dot-jsdezai-gou-zhu-sitahua)
 
-### Nuxt 関連書籍
+## Nuxt 関連書籍
 
-[Nuxt.js ビギナーズガイド―Vue.js ベースのフレームワークによるシングルページアプリケーション開発 | 花谷 拓磨 |本 | 通販 | Amazon](https://www.amazon.co.jp/dp/4863542569/)
-[Vue.js 入門 基礎から実践アプリケーション開発まで | 川口 和也, 喜多 啓介, 野田 陽平, 手島 拓也, 片山 真也 |本 | 通販 | Amazon](https://www.amazon.co.jp/dp/4297100916/)
-[基礎から学ぶ Vue.js | MIO | 工学 | Kindle ストア | Amazon](https://www.amazon.co.jp/dp/B07D9BYHMZ/)
+- [Nuxt.js ビギナーズガイド―Vue.js ベースのフレームワークによるシングルページアプリケーション開発 | 花谷 拓磨 |本 | 通販 | Amazon](https://www.amazon.co.jp/dp/4863542569/)
+- [Vue.js 入門 基礎から実践アプリケーション開発まで | 川口 和也, 喜多 啓介, 野田 陽平, 手島 拓也, 片山 真也 |本 | 通販 | Amazon](https://www.amazon.co.jp/dp/4297100916/)
+- [基礎から学ぶ Vue.js | MIO | 工学 | Kindle ストア | Amazon](https://www.amazon.co.jp/dp/B07D9BYHMZ/)
 
 ## Firebase Hosting へデプロイ
 

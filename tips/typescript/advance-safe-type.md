@@ -189,7 +189,7 @@ const assertion を利用すると `tuple` 型を簡略化して記述できま�
 
 ```ts
 
-''''const ruffy = [Monkey, 19] as const // readonly [Monkey, 19]
+const ruffy = [Monkey, 19] as const // readonly [Monkey, 19]
 
 ```
 
@@ -211,7 +211,7 @@ const typeCheck = (val: number | string) => {
 }
 
 typeCheck(0)
-typeCheck(name)''''
+typeCheck(name)
 
 ```
 

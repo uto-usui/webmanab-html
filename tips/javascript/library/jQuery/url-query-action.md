@@ -14,7 +14,7 @@ URLのクエリ文字列は、URLの後ろのほうに付く`?xxx=xx` `?xxx=xxx&
 
 今回は任意の要素までスクロールしつつ、その要素に任意のテキストを表示します。
 
-`https://webmanab-html.com/?group=favorite&id=section3`というようなURLを想定し、`?group=favorite`と`id=section3`の右辺の値を利用します。
+`https://webmanab.com/?group=favorite&id=section3`というようなURLを想定し、`?group=favorite`と`id=section3`の右辺の値を利用します。
 
 
 #### html

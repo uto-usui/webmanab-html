@@ -7,7 +7,7 @@
 
 SassはCSSに変換してhtmlファイルにはCSSファイルとして読み込ませることになるので、コンパイラー(変換するやつ)が必須です。Dreamweaver2017やBracketsの拡張機能を使えば簡単にコンパイルすることができますし、タスクランナーのgulpを利用すればより高度に取り扱うことができます。
 
-* [デザイナーがMacOSでgulpを動かせるようになるまで](http://webmanab-html.com/tip/macos-gulp-init/)
+* [デザイナーがMacOSでgulpを動かせるようになるまで](https://webmanab.com/tip/macos-gulp-init/)
 
 とりあえずオンラインでの実行環境は
 

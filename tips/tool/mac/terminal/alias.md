@@ -66,7 +66,7 @@ function cmd() {
 ## Nodebrewを使っているとき
 Nodebrew で node.js の管理をしている場合は、.bashrc ではなく .bash_profile にコマンドを記述することになります。
 
-* [nodebrewでnode.jsのバージョン管理をする -『front-end』 – webmanab.html／ウェブまなぶ](https://webmanab-html.com/tip/nodebrew-manage-nodejs/)
+* [nodebrewでnode.jsのバージョン管理をする -『front-end』 – webmanab.html／ウェブまなぶ](https://webmanab.com/tip/nodebrew-manage-nodejs/)
 
 
 

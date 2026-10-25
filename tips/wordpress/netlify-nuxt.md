@@ -24,8 +24,8 @@ xserver でサブドメイン(wp)を作成し、wordpress 本体をその階層�
 #### wp-config
 
 ```php
-define(‘WP_HOME’,’http://wp.webmanab-html.com’);
-define(‘WP_SITEURL’,’http://wp.webmanab-html.com’);
+define(‘WP_HOME’,’http://wp.example.com’);
+define(‘WP_SITEURL’,’http://wp.example.com’);
 ```
 
 Netlify の DNS records 設定で、サブドメインが server に向くように指定する。

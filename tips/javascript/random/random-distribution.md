@@ -26,7 +26,7 @@ console.log(random(5)); // 5未満のランダム値
 
 「CreateJS」の使い方の基礎はここにまとめました。
 
-* [いろいろな形のシェイプをCreateJSで描画するまで -『CreateJS基礎』](https://webmanab-html.com/reference/shape/)
+* [いろいろな形のシェイプをCreateJSで描画するまで -『CreateJS基礎』](https://webmanab.com/tip/shape/)
 
 
 
@@ -42,7 +42,7 @@ const randBasic = (max) => Math.floor(Math.random() * max);
 ```
 
 
-<img src="https://webmanab-html.com/wp-content/uploads/2017/03/basic.png" alt="basic">
+<img src="./img/basic.png" alt="basic">
 
 
 ### 中央に分布する
@@ -56,7 +56,7 @@ const randSum = (max) => Math.floor((Math.random() + Math.random()) / 2 * max);
 ```
 
 
-<img src="https://webmanab-html.com/wp-content/uploads/2017/03/sum.png" alt="sum">
+<img src="./img/sum.png" alt="sum">
 
 
 ### 最小値に分布する
@@ -69,7 +69,7 @@ const randTime = (max) => Math.floor(Math.random() * Math.random() * max);
 
 ```
 
-<img src="https://webmanab-html.com/wp-content/uploads/2017/03/times.png" alt="times">
+<img src="./img/times.png" alt="times">
 
 
 ### より最小値に分布する
@@ -85,7 +85,7 @@ const randSquare = (max) => {
 
 ```
 
-<img src="https://webmanab-html.com/wp-content/uploads/2017/03/square.png" alt="square">
+<img src="./img/square.png" alt="square">
 
 
 ### 最大値から比例的に拡散
@@ -100,7 +100,7 @@ const randRoot = (max) => Math.floor(Math.sqrt(Math.random()) * max);
 ```
 
 
-<img src="https://webmanab-html.com/wp-content/uploads/2017/03/root.png" alt="root">
+<img src="./img/root.png" alt="root">
 
 
 
@@ -125,7 +125,7 @@ const randTimeReverse = (max) => Math.floor( (1 - Math.random() * Math.random())
 
 ```
 
-<img src="https://webmanab-html.com/wp-content/uploads/2017/03/times_reverse.png" alt="times_reverse">
+<img src="./img/times_reverse.png" alt="times_reverse">
 
 
 ### より最大値に分布する
@@ -141,7 +141,7 @@ const randSquareReverse = (max) => {
 
 ```
 
-<img src="https://webmanab-html.com/wp-content/uploads/2017/03/square_reverse.png" alt="square_reverse">
+<img src="./img/square_reverse.png" alt="square_reverse">
 
 
 ### 最小値から比例的に拡散
@@ -154,7 +154,7 @@ const randRootReverse = (max) => Math.floor((1 - Math.sqrt(Math.random())) * max
 
 ```
 
-<img src="https://webmanab-html.com/wp-content/uploads/2017/03/root_reverse.png" alt="root_reverse">
+<img src="./img/root_reverse.png" alt="root_reverse">
 
 
 

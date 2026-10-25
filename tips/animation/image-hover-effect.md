@@ -8,7 +8,7 @@
 
 ### Card Expansion Effect with SVG clipPath
 
-![CardExpansion](https://webmanab-html.com/wp-content/uploads/2016/07/CardExpansion.jpg)
+![CardExpansion](https://webmanab.com/images/uploads/2016/07/CardExpansion.jpg)
 
 画像をクリックすると、アニメーションが発火して、画像に紐付いたコンテンツが展開して表示されます。
 デモは４つ用意されていますが、どれもモーションが美しくなめらかです。
@@ -17,7 +17,7 @@
 
 ### Animated Grid Layout
 
-![GridItemAnimation](https://webmanab-html.com/wp-content/uploads/2016/07/GridItemAnimation.jpg)
+![GridItemAnimation](https://webmanab.com/images/uploads/2016/07/GridItemAnimation.jpg)
 
 サムネイルをクリックすると、それに紐疼いたコンテンツが読み込まれ、アニメーションを伴って表示されます。
 
@@ -33,7 +33,7 @@
 
 ### Image Tilt Effect
 
-![ImageTiltEffect](https://webmanab-html.com/wp-content/uploads/2016/07/ImageTiltEffect.jpg)
+![ImageTiltEffect](https://webmanab.com/images/uploads/2016/07/ImageTiltEffect.jpg)
 
 ホバーするとチルトエフェクト(マウスの位置に応じて画像に傾きを与える)を発生させます。
 オプションが豊富で、デモで違いをグリグリ動かして試してみることができます。

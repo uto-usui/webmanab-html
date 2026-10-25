@@ -14,7 +14,7 @@ JavaScriptの構文チェックツールは他に、「JSHint」「JSLint」「J
 
 gulp環境の構築はこちらを参照してください。
 
-* <a href="https://webmanab-html.com/tip/macos-gulp-init/" target="_blank">デザイナーがMacOSでgulpを動かせるようになるまでと、タスクとテンプレートファイルβ版の配布 -『gulp』</a>
+* <a href="https://webmanab.com/tip/macos-gulp-init/" target="_blank">デザイナーがMacOSでgulpを動かせるようになるまでと、タスクとテンプレートファイルβ版の配布 -『gulp』</a>
 
 
 

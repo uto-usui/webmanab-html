@@ -15,7 +15,7 @@ Node.js製の**スタイルガイドジェネレータ「FrontNote」**のガイ
 
 「gulp.js」の導入に関しては詳しく記事にしました。
 
-* [デザイナーがMacOSで「gulp.js」を動かせるようになるまでと、タスクとテンプレートファイルβ版の配布 -『front-end』](https://webmanab-html.com/tip/macos-gulp-init/)
+* [デザイナーがMacOSで「gulp.js」を動かせるようになるまでと、タスクとテンプレートファイルβ版の配布 -『front-end』](https://webmanab.com/tip/macos-gulp-init/)
 
 
 

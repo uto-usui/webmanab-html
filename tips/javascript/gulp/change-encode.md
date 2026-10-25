@@ -4,7 +4,7 @@ gulpで UTF-8 のファイルをビルド時に Shift_JIS に変換する方法�
 
 gulp 環境の導入はこちらからです。
 
-* [デザイナーがMacOSで「gulp.js」を動かせるようになるまでと、タスクとテンプレートファイルβ版の配布 -『front-end』 – webmanab.html／ウェブまなぶ](https://webmanab-html.com/tip/macos-gulp-init/)
+* [デザイナーがMacOSで「gulp.js」を動かせるようになるまでと、タスクとテンプレートファイルβ版の配布 -『front-end』 – webmanab.html／ウェブまなぶ](https://webmanab.com/tip/macos-gulp-init/)
 
 
  

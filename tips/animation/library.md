@@ -22,7 +22,7 @@
 
 ### Tuesday
 
-<img src="https://webmanab-html.com/wp-content/uploads/2017/01/tuesday.png" alt="tuesday">
+<img src="https://webmanab.com/images/uploads/2017/01/tuesday.png" alt="tuesday">
 
 0.3 秒くらいの短時間で終了するように作られた要素の表示／非表示に使える、シンプルな CSS アニメーションライブラリ。用意された`class`属性を付与するだけで簡単にアニメーションが実装できます。ソースは Less で記述されています。
 
@@ -35,7 +35,7 @@
 
 ### csshake
 
-<img src="https://webmanab-html.com/wp-content/uploads/2017/01/csshake.png" alt="csshake">
+<img src="https://webmanab.com/images/uploads/2017/01/csshake.png" alt="csshake">
 
 ガクガクブルブル震わせる CSS ライブラリ。派手楽しいですが、とてもおしゃれ。用意されている`class`属性を付与します。SCSS で記述されていて、カスタマイズ用の`mixin`が用意されています。
 
@@ -52,7 +52,7 @@
 
 ### animate.css
 
-<img src="https://webmanab-html.com/wp-content/uploads/2017/01/animate-css.png" alt="animate-css">
+<img src="https://webmanab.com/images/uploads/2017/01/animate-css.png" alt="animate-css">
 
 `class`属性を付与してさまざまなアニメーションを実装します。とても有名で人気のある CSS アニメーションライブラリ。
 
@@ -69,7 +69,7 @@ SCSS で Mixin が用意されている「animate.scss」もあります。実�
 
 ### animatable
 
-<img src="https://webmanab-html.com/wp-content/uploads/2017/01/animatable.png" alt="animatable">
+<img src="https://webmanab.com/images/uploads/2017/01/animatable.png" alt="animatable">
 
 CSS のプロパティ別にアニメーションを実装した例のまとめ。オブジェクトをクリックするとプロパティを変化させている値の幅を見ることができます。
 
@@ -77,7 +77,7 @@ CSS のプロパティ別にアニメーションを実装した例のまとめ�
 
 ### motion UI
 
-<img src="https://webmanab-html.com/wp-content/uploads/2017/01/zurb-playground-motion.png" alt="zurb-playground-motion">
+<img src="https://webmanab.com/images/uploads/2017/01/zurb-playground-motion.png" alt="zurb-playground-motion">
 
 豊富なアニメーションが Sass で用意されています。Mixin でいろいろな拡張ができるようになっていて、もともと用意されているアニメーションをミックスしたり、アニメーションに順序を与えることが簡単にできます。JavaScript で制御することができるようになっています。ドキュメントはちょっと難しめ。
 
@@ -86,7 +86,7 @@ CSS のプロパティ別にアニメーションを実装した例のまとめ�
 
 ### Magic Animations CSS3
 
-<img src="https://webmanab-html.com/wp-content/uploads/2017/01/magic_animations.png" alt="magic_animations">
+<img src="https://webmanab.com/images/uploads/2017/01/magic_animations.png" alt="magic_animations">
 
 クラスを付与することで、可愛い動きを実装できます。ユーザーがクリックした時など、UI のアクションに向いています。
 
@@ -115,7 +115,7 @@ $('.animate').on('click', function() {
 
 ### bouncejs
 
-<img src="https://webmanab-html.com/wp-content/uploads/2017/01/bouncejs.png" alt="bouncejs">
+<img src="https://webmanab.com/images/uploads/2017/01/bouncejs.png" alt="bouncejs">
 
 少し激しめでトリッキーな動きが用意されています。デモページではプリセットされたアニメーションを直感的にエディット／プレビューしてカスタマイズできます。CSS のコードがエクスポートできるようになっていて、出力された`transform: matrix3d()`を利用した `@keyframes`アニメーションをコピペできます。
 
@@ -157,7 +157,7 @@ bounce
 
 ### voxel.css
 
-<img src="https://webmanab-html.com/wp-content/uploads/2017/01/voxelcss.png" alt="voxelcss">
+<img src="https://webmanab.com/images/uploads/2017/01/voxelcss.png" alt="voxelcss">
 
 JavaScript で四角い立方体を並べて、3D 空間を CSS のプロパティで実現するライブラリ。光源の概念があるのすごい。マウスイベントが簡単に実装できて箱の増減や回転のインタラクションをつけることができる。
 
@@ -189,7 +189,7 @@ init(document.body);
 
 ### aos
 
-![aos](https://wp.webmanab-html.com/wp-content/uploads/2017/01/aos.jpg)
+![aos](https://webmanab.com/images/uploads/2017/01/aos.jpg)
 
 スクロールをトリガーに発生するアニメーション。`data-*`属性を使ってパラメータを渡します。豊富なイージングが用意されています。どれくらい可視範囲に入ってきてからどれくらいの時間で、というように細かい内容を直感的に記述できるところが魅力です。
 
@@ -227,7 +227,7 @@ AOS.init({
 
 ### animsition
 
-<img src="https://webmanab-html.com/wp-content/uploads/2017/01/animsition.png" alt="animsition">
+<img src="https://webmanab.com/images/uploads/2017/01/animsition.png" alt="animsition">
 
 画面遷移にアニメーションを与えることができます。オプションやコールバックが豊富なので、画面遷移をなめらかに表現して体感速度を高めたり、リッチな表現に向いています。
 
@@ -236,7 +236,7 @@ AOS.init({
 
 ### Morf.js
 
-<img src="https://webmanab-html.com/wp-content/uploads/2017/01/joelambert.png" alt="joelambert">
+<img src="https://webmanab.com/images/uploads/2017/01/joelambert.png" alt="joelambert">
 
 豊富に用意されたイージングを探索できます。
 
@@ -294,7 +294,7 @@ TweenMax.to('.animate_', // セレクタ
 
 ### anime.js
 
-<img src="https://webmanab-html.com/wp-content/uploads/2017/01/anime-js.png" alt="anime-js">
+<img src="https://webmanab.com/images/uploads/2017/01/anime-js.png" alt="anime-js">
 
 「anime.js」にはランダム関数が用意されていたり、`svg`のパス上でのアニメーションや、オブジェクトの値を変化させることもできる表現力の高いライブラリ。オプションやイベントが豊富で、人気があります。
 
@@ -381,7 +381,7 @@ Velocity(element,
 
 ### cssanimate
 
-<img src="https://webmanab-html.com/wp-content/uploads/2017/01/cssanimate.png" alt="cssanimate">
+<img src="https://webmanab.com/images/uploads/2017/01/cssanimate.png" alt="cssanimate">
 
 キーフレームをタイムラインで調整しながら、オブジェクトをドラッグや変形させたりして、プロパティの値を直感的に触りながらプレビューできます。
 
@@ -393,7 +393,7 @@ CSS の`@keyframes`を待機時間を含めたコードを吐き出すジェネ�
 
 以前に紹介してました。
 
-- [CSS の keyframes アニメーションで待機時間を指定したものを吐き出す WAIT! Animate](https://webmanab-html.com/tip/wait-animate/)
+- [CSS の keyframes アニメーションで待機時間を指定したものを吐き出す WAIT! Animate](https://webmanab.com/tip/wait-animate/)
 
 ## svg アニメーション
 
